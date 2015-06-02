@@ -1,8 +1,8 @@
 {
-  "name": "material-start",
+  "name": "AngularJS-Exercise",
   "private": true,
   "version": "0.0.2",
-  "description": "A starter project for AngularJS Material",
+  "description": "An exercise to learn angularJs using angular-material",
   "repository": "https://github.com/angular/material-start",
   "license": "MIT",
   "devDependencies": {
