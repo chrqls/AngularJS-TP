@@ -1,15 +1,16 @@
 describe('UserController', function(){
 
     var UserController;
-
     var user = {
-        name: 'toto'
+        name: 'foo'
     };
 
     beforeEach(module('users'));
 
     beforeEach(inject(function($controller){
         UserController = $controller('UserController');
+        UserController.selectedIndex = 0;
+        UserController.users[0] = user;
     }));
 
     it('should have an array of user defined', function(){
@@ -17,7 +18,7 @@ describe('UserController', function(){
     });
 
     it('should give selectedUser attribute a value when userChange method is called', function(){
-        UserController.userChange(user);
-        expect(UserController.selectedUser.name).toBe('toto');
+        UserController.userChange();
+        expect(UserController.selectedUser).toBe(user);
     });
 });
