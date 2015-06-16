@@ -1,36 +1,51 @@
 <!DOCTYPE html>
-<html lang="fr" >
-  <head>
+<html lang="fr">
+<head>
     <title>Angular Material - Starter App</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
-  </head>
+</head>
 
-  <body ng-app="app" layout>
+<body ng-app="app">
 
-    <form name="pseudoLoginForm" layout="column" flex layout-align="center center" ng-controller="UserController as ctrl">
+<md-toolbar>
+    <div layout="row" class="md-toolbar-tools">
+        <small>
+            AmbientIT
+        </small>
+        <span flex></span>
+
+        <h1>
+            AngularJs exercice
+        </h1>
+    </div>
+</md-toolbar>
+<md-content layout="column" layout-fill>
+    <form name="pseudoLoginForm" layout="column" flex layout-align="center center"
+          ng-controller="UserController as ctrl">
         <md-input-container>
-            <md-select name="user" placeholder="Who are you ?" ng-model="ctrl.selectedUser" ng-change="ctrl.userSelected()">
-                <md-option ng-repeat="user in ::ctrl.users" value="{{ user.id }}">{{ user.name }}</md-option>
+            <md-select name="user" placeholder="Who do you want to be ?" ng-model="ctrl.selectedIndex"
+                       ng-change="ctrl.userChange()">
+                <md-option ng-repeat="user in ::ctrl.users" value="{{ $index }}">{{ user.name }}</md-option>
             </md-select>
         </md-input-container>
     </form>
+</md-content>
 
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 
-    <script src="./bower_components/angular/angular.js"></script>
-    <script src="./bower_components/angular-animate/angular-animate.js"></script>
-    <script src="./bower_components/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./src/users/UserController.js"></script>
+<script src="./src/app.js"></script>
 
-    <script src="./src/users/UserController.js"></script>
-    <script src="./src/app.js"></script>
-
-  </body>
+</body>
 </html>
