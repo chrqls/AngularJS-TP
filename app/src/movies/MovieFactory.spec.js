@@ -1,6 +1,6 @@
 describe('MovieFactory', function(){
 
-    var usersFactory;
+    var movieFactory;
     var $httpBackend;
     var movies = [{
         name: 'foo'
@@ -8,8 +8,8 @@ describe('MovieFactory', function(){
 
     beforeEach(module('movies'));
 
-    beforeEach(inject(function(_userFactory_,_$httpBackend_){
-        usersFactory = _userFactory_;
+    beforeEach(inject(function(_movieFactory_,_$httpBackend_){
+        movieFactory = _movieFactory_;
         $httpBackend = _$httpBackend_;
         $httpBackend.whenGET('http://localhost:3000/movies').respond(movies);
 
@@ -21,10 +21,10 @@ describe('MovieFactory', function(){
     });
 
     it('should return an array of movies and store them', function(){
-        usersFactory.findAll();
+        movieFactory.findAll();
         $httpBackend.expectGET('http://localhost:3000/movies');
         $httpBackend.flush();
-        expect(usersFactory.get().length).toBe(1);
+        expect(movieFactory.get().length).toBe(1);
     });
 
 });

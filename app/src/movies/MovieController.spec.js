@@ -5,7 +5,7 @@ describe('MovieController', function(){
         name: 'foo'
     };
 
-    beforeEach(module('users'));
+    beforeEach(module('movies'));
 
     beforeEach(inject(function($controller){
         var movieFactoryMock = function(){

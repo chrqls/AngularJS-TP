@@ -14,7 +14,7 @@
      * manage the login state of our app
      *
      */
-    function UserController(userFactory) {
+    function UserController(userFactory,$state) {
         var self = this;
 
         this.userChange = function(){
@@ -22,6 +22,10 @@
         };
 
         this.users = userFactory.get();
+
+        this.login = function(){
+            $state.go('movies');
+        }
     }
 
 })();

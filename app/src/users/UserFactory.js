@@ -4,6 +4,15 @@
     angular.module('users')
         .factory('userFactory',userFactory);
 
+    /**
+     * @ngdoc factory
+     * @name users.factory:UserFactory
+     * @function
+     *
+     * @description
+     * manage users data communicate with a rest api and store data in cache
+     *
+     */
     function userFactory($q,$http){
 
         var URI = 'http://localhost:3000/users';
