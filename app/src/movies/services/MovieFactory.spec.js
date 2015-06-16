@@ -3,6 +3,7 @@ describe('MovieFactory', function(){
     var movieFactory;
     var $httpBackend;
     var movies = [{
+        id:1,
         name: 'foo'
     }];
 
@@ -12,7 +13,7 @@ describe('MovieFactory', function(){
         movieFactory = _movieFactory_;
         $httpBackend = _$httpBackend_;
         $httpBackend.whenGET('http://localhost:3000/movies').respond(movies);
-
+        $httpBackend.whenGET('http://localhost:3000/movies/1').respond(movies[0]);
     }));
 
     afterEach(function () {
@@ -25,6 +26,13 @@ describe('MovieFactory', function(){
         $httpBackend.expectGET('http://localhost:3000/movies');
         $httpBackend.flush();
         expect(movieFactory.get().length).toBe(1);
+    });
+
+    it('should return a movie object and store it', function(){
+        movieFactory.findOne(1);
+        $httpBackend.expectGET('http://localhost:3000/movies/1');
+        $httpBackend.flush();
+        expect(movieFactory.getSelected().name).toBe('foo');
     });
 
 });
