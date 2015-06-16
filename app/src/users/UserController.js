@@ -1,25 +1,26 @@
 (function(){
+    'use strict';
 
   angular
-       .module('users')
+       .module('users',[
+          'ngMaterial'
+      ])
        .controller('UserController',UserController);
 
   /**
-   * Main Controller for the Angular Material Starter App
-   * @param $scope
-   * @param $mdSidenav
-   * @param avatarsService
-   * @constructor
+   * @ngdoc controller
+   * @name users.controller:UserController
+   * @function
+   *
+   * @description
+   * manage the main state of our app
+   *
+
    */
   function UserController() {
     var self = this;
 
-      self.userSelected = function(){
-
-          console.log(self.selectedUser);
-      };
-
-    self.users = [
+    this.users = [
         {
             id: 1,
             name: "Lia Lugo",
@@ -56,8 +57,7 @@
             "avatar": "svg-6",
             "content": "Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? Get a new driver's license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ac magna justo pellentesque ac lectus. You don't go out and make a living dressed like that in the middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit malesuada."
         }
-    ]
-
+    ];
   }
 
 })();

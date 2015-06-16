@@ -2,7 +2,10 @@
     'use strict';
 
     angular
-        .module('app', ['ngMaterial', 'users'])
+        .module('app', [
+            'ngMaterial',
+            'users'
+        ])
         .config(function($mdThemingProvider, $mdIconProvider){
 
             $mdIconProvider

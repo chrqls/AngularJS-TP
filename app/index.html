@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="assets/app.css"/>
   </head>
 
-  <body ng-app="app" layout layout-fill>
+  <body ng-app="app" layout>
 
-    <form name="pseudoLoginForm" layout="column" layout-fill layout-align="center center" ng-controller="UserController as ctrl">
+    <form name="pseudoLoginForm" layout="column" flex layout-align="center center" ng-controller="UserController as ctrl">
         <md-input-container>
             <md-select name="user" placeholder="Who are you ?" ng-model="ctrl.selectedUser" ng-change="ctrl.userSelected()">
                 <md-option ng-repeat="user in ::ctrl.users" value="{{ user.id }}">{{ user.name }}</md-option>
@@ -29,7 +29,6 @@
     <script src="./bower_components/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
 
-    <script src="./src/users/Users.js"></script>
     <script src="./src/users/UserController.js"></script>
     <script src="./src/app.js"></script>
 
