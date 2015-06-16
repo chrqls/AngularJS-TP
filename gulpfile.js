@@ -4,24 +4,24 @@ var config = {
     doc: './docs'
 };
 
-var gulp = require('gulp'),
+var gulp = require('gulp-help')(require('gulp')),
     plugins = require('gulp-load-plugins')(),
     path = require('path'),
     karma = require('karma').server;
 
-gulp.task('jshint',function(){
+gulp.task('quality','lint the code once',function(){
     gulp.src(config.jsSources)
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('code-quality', ['jshint'],function(){
+gulp.task('jshint','continuously lint your code and log in the console with style ', ['quality'],function(){
    gulp.watch(config.jsSources,['jshint']);
 });
 
 var pathToKarmaConfigFile = path.resolve(config.karmaConfigFile);
 
-gulp.task('unit', function (done) {
+gulp.task('unit','run unit test once', function (done) {
     karma.start({
         configFile: pathToKarmaConfigFile,
         singleRun: true,
@@ -29,19 +29,19 @@ gulp.task('unit', function (done) {
     }, done);
 });
 
-gulp.task('tdd', function (done) {
+gulp.task('tdd','run unit tests continuously', function (done) {
     karma.start({
         configFile: pathToKarmaConfigFile
     }, done);
 
 });
 
-gulp.task('documentation::clean',function(){
+gulp.task('documentation::clean','clean the ./doc folder',function(){
     gulp.src(config.doc,{read:false})
         .pipe(plugins.clean());
 });
 
-gulp.task('documentation', ['documentation::clean'], function () {
+gulp.task('documentation','generate documentation', ['documentation::clean'], function () {
     var options = {
         html5Mode: true,
         startPage: '/api',
