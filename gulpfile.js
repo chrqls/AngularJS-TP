@@ -16,7 +16,7 @@ gulp.task('quality','lint the code once',function(){
 });
 
 gulp.task('jshint','continuously lint your code and log in the console with style ', ['quality'],function(){
-   gulp.watch(config.jsSources,['jshint']);
+   gulp.watch(config.jsSources,['quality']);
 });
 
 var pathToKarmaConfigFile = path.resolve(config.karmaConfigFile);
