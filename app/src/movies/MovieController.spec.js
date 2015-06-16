@@ -14,7 +14,7 @@ describe('MovieController', function(){
                 get: function(){
                     return movies;
                 }
-            }
+            };
         };
 
         MovieController = $controller('MovieController',{

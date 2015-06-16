@@ -18,11 +18,9 @@
                     views: {
                         main: {
                             controller: 'UserController as ctrl',
-                            templateUrl: 'src/users/users.tpl.html'
+                            templateUrl: 'src/users/views/users.tpl.html'
                         }
                     }
-                })
-        })
-
-
+                });
+        });
 })();

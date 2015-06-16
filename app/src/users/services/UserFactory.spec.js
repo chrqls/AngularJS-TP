@@ -13,6 +13,10 @@ describe('UserController', function(){
         $httpBackend = _$httpBackend_;
         $httpBackend.whenGET('http://localhost:3000/users').respond(users);
 
+        usersFactory.findAll();
+        $httpBackend.expectGET('http://localhost:3000/users');
+        $httpBackend.flush();
+
     }));
 
     afterEach(function () {
@@ -21,17 +25,10 @@ describe('UserController', function(){
     });
 
     it('should return an array of users', function(){
-        usersFactory.findAll();
-        $httpBackend.expectGET('http://localhost:3000/users');
-        $httpBackend.flush();
         expect(usersFactory.get().length).toBe(1);
     });
 
     it('should store the selectedUser', function(){
-        usersFactory.findAll();
-        $httpBackend.expectGET('http://localhost:3000/users');
-        $httpBackend.flush();
-
         usersFactory.select(0);
         expect(usersFactory.getSelected().name).toBe(users[0].name);
     });

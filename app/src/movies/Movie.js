@@ -15,11 +15,15 @@
                     }
                 },
                 views: {
+                    header: {
+                        controller: 'MovieHeaderController as header',
+                        templateUrl: 'src/movies/views/movies-header.tpl.html'
+                    },
                     main: {
                         controller: 'MovieController as ctrl',
-                        templateUrl: 'src/movies/movies.tpl.html'
+                        templateUrl: 'src/movies/views/movies.tpl.html'
                     }
                 }
-            })
-    })
+            });
+    });
 })();

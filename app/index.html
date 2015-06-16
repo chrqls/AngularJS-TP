@@ -17,17 +17,19 @@
 </head>
 
 <body ng-app="app" layout="column">
-<md-toolbar>
-    <div layout="row" class="md-toolbar-tools">
-        <small>
-            AmbientIT
-        </small>
-        <span flex></span>
-        <h1>
-            AngularJs exercice
-        </h1>
-    </div>
-</md-toolbar>
+<header ui-view="header">
+    <md-toolbar>
+        <div layout="row" class="md-toolbar-tools">
+            <small>
+                AmbientIT
+            </small>
+            <span flex></span>
+            <h1>
+                AngularJs exercice
+            </h1>
+        </div>
+    </md-toolbar>
+</header>
 <md-content layout="column" flex ui-view="main">
 
 </md-content>
@@ -45,7 +47,8 @@
 
 <script src="./src/movies/Movie.js"></script>
 <script src="./src/movies/MovieController.js"></script>
-<script src="./src/movies/MovieFactory.js"></script>
+<script src="./src/movies/MovieHeaderController.js"></script>
+<script src="./src/movies/services/MovieFactory.js"></script>
 
 
 <script src="./src/app.js"></script>

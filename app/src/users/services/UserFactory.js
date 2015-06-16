@@ -1,8 +1,8 @@
 (function(){
     'use strict';
 
-    angular.module('movies')
-        .factory('movieFactory',movieFactory);
+    angular.module('users')
+        .factory('userFactory',userFactory);
 
     /**
      * @ngdoc factory
@@ -13,11 +13,12 @@
      * manage users data communicate with a rest api and store data in cache
      *
      */
-    function movieFactory($q,$http){
+    function userFactory($q,$http){
 
-        var URI = 'http://localhost:3000/movies';
+        var URI = 'http://localhost:3000/users';
 
-        var movies;
+        var users,
+            selected;
 
         return {
             findAll: function(){
@@ -25,15 +26,21 @@
                     $http
                         .get(URI)
                         .success(function(data){
-                            movies = data;
+                            users = data;
                             resolve();
-                        })
-                })
+                        });
+                });
             },
             get: function(){
-                return movies;
+                return users;
+            },
+            select: function(id){
+                selected = users[id];
+            },
+            getSelected: function(){
+                return selected;
             }
-        }
+        };
 
     }
 

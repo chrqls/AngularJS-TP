@@ -25,7 +25,7 @@
 
         this.login = function(){
             $state.go('movies');
-        }
+        };
     }
 
 })();

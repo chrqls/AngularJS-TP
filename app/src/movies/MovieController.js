@@ -15,10 +15,6 @@
      */
     function MovieController(movieFactory, $mdSidenav){
         this.movies = movieFactory.get();
-
-        this.closeAside = function(){
-            $mdSidenav('movies').toggle();
-        }
     }
 
 })();
