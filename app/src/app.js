@@ -4,9 +4,12 @@
     angular
         .module('app', [
             'ngMaterial',
-            'users'
+            'users',
+            'ui.router'
         ])
-        .config(function($mdThemingProvider, $mdIconProvider){
+        .config(function($mdThemingProvider, $mdIconProvider, $locationProvider){
+
+            $locationProvider.html5Mode(true);
 
             $mdIconProvider
                 .defaultIconSet("./assets/svg/avatars.svg", 128)

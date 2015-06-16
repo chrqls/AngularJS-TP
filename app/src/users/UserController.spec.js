@@ -8,8 +8,17 @@ describe('UserController', function(){
     beforeEach(module('users'));
 
     beforeEach(inject(function($controller){
+        var userFactoryMock = function(){
+            var users = [user];
+            return {
+                get: function(){
+                    return users;
+                }
+            }
+        };
+
         UserController = $controller('UserController',{
-            users: [user]
+            userFactory: userFactoryMock()
         });
         UserController.selectedIndex = 0;
         UserController.users[0] = user;

@@ -4,6 +4,7 @@
     <title>Angular Material - Starter App</title>
 
     <meta charset="utf-8">
+    <base href="/"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
@@ -13,7 +14,7 @@
     <link rel="stylesheet" href="assets/app.css"/>
 </head>
 
-<body ng-app="app">
+<body ng-app="app" layout="column">
 <md-toolbar>
     <div layout="row" class="md-toolbar-tools">
         <small>
@@ -26,25 +27,8 @@
         </h1>
     </div>
 </md-toolbar>
-<md-content layout="column" layout-fill>
-    <form name="pseudoLoginForm" layout="column" flex layout-align="center center"
-          ng-controller="UserController as ctrl">
-        <md-input-container>
-            <md-select name="user" placeholder="Who do you want to be ?" ng-model="ctrl.selectedIndex"
-                       ng-change="ctrl.userChange()">
-                <md-option ng-repeat="user in ::ctrl.users" value="{{ $index }}">{{ user.name }}</md-option>
-            </md-select>
-        </md-input-container>
-        <md-content ng-show="ctrl.selectedUser" layout="column" layout-align="center center">
-            <div layout="row">
-                <md-icon md-svg-icon="{{ctrl.selectedUser.avatar}}" class="avatar"></md-icon>
-                <h2>{{ctrl.selectedUser.name}}</h2>
-            </div>
-            <md-button class="md-primary md-raised" flex>
-                Login
-            </md-button>
-        </md-content>
-    </form>
+<md-content layout="column" flex ui-view="main">
+
 </md-content>
 
 
@@ -55,6 +39,8 @@
 <script src="./bower_components/ui-router/release/angular-ui-router.js"></script>
 
 <script src="./src/users/UserController.js"></script>
+<script src="./src/users/UserFactory.js"></script>
+
 <script src="./src/app.js"></script>
 
 </body>
