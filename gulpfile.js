@@ -1,6 +1,7 @@
 var config = {
     jsSources: './app/src/**/*.js',
-    karmaConfigFile: './app/karma.config.js'
+    karmaConfigFile: './app/karma.config.js',
+    doc: './docs'
 };
 
 var gulp = require('gulp'),
@@ -8,10 +9,14 @@ var gulp = require('gulp'),
     path = require('path'),
     karma = require('karma').server;
 
-gulp.task('code-quality',function(){
-   gulp.src(config.jsSources)
-       .pipe(plugins.jshint())
-       .pipe(plugins.jshint.reporter('jshint-stylish'))
+gulp.task('jshint',function(){
+    gulp.src(config.jsSources)
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('code-quality', ['jshint'],function(){
+   gulp.watch(config.jsSources,['jshint']);
 });
 
 var pathToKarmaConfigFile = path.resolve(config.karmaConfigFile);
@@ -31,7 +36,12 @@ gulp.task('tdd', function (done) {
 
 });
 
-gulp.task('documentation', [], function () {
+gulp.task('documentation::clean',function(){
+    gulp.src(config.doc,{read:false})
+        .pipe(plugins.clean());
+});
+
+gulp.task('documentation', ['documentation::clean'], function () {
     var options = {
         html5Mode: true,
         startPage: '/api',
@@ -42,5 +52,5 @@ gulp.task('documentation', [], function () {
     };
     return gulp.src(config.jsSources)
         .pipe(plugins.ngdocs.process(options))
-        .pipe(gulp.dest('./docs'));
+        .pipe(gulp.dest(config.doc));
 });
