@@ -13,7 +13,7 @@
      * manage movies state of our app
      *
      */
-    function MovieController(movieFactory, $mdSidenav){
+    function MovieController(movieFactory){
         this.movies = movieFactory.get();
     }
 
