@@ -2,9 +2,7 @@
     'use strict';
 
   angular
-       .module('users',[
-          'ngMaterial'
-      ])
+       .module('users')
        .controller('UserController',UserController);
 
   /**
