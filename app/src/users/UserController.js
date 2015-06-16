@@ -3,8 +3,27 @@
 
     angular
         .module('users', [
-            'ngMaterial'
+            'ngMaterial',
+            'ui.router'
         ])
+        .config(function($locationProvider,$stateProvider){
+            $locationProvider.html5Mode(true);
+            $stateProvider
+                .state('users',{
+                    url: '/',
+                    resolve: {
+                      users: function(){
+
+                      }
+                    },
+                    views: {
+                        main: {
+                            controller: '',
+                            templateUrl: ''
+                        }
+                    }
+                })
+        })
         .controller('UserController', UserController);
 
     /**
