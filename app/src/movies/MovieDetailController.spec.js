@@ -1,7 +1,9 @@
 describe('MovieController', function(){
 
     var MovieDetailController,
-        mockAside;
+        mockAside,
+        mockDialog,
+        mockBottom;
     var movie = {
         name: 'foo'
     };
@@ -17,6 +19,16 @@ describe('MovieController', function(){
         mockAside = function(){
             return data;
         };
+        mockDialog = {
+            show: function(){
+
+            }
+        };
+        mockBottom = {
+            show: function(){
+
+            }
+        };
         var movieFactoryMock = function(){
             var selected = movie;
             return {
@@ -25,11 +37,16 @@ describe('MovieController', function(){
                 }
             };
         };
+
         spyOn(mockAside(),'toggle').and.callThrough();
+        spyOn(mockDialog,'show').and.callThrough();
+        spyOn(mockBottom,'show').and.callThrough();
 
         MovieDetailController = $controller('MovieDetailController',{
             movieFactory: movieFactoryMock(),
-            $mdSidenav: mockAside
+            $mdSidenav: mockAside,
+            $mdDialog: mockDialog,
+            $mdBottomSheet: mockBottom
         });
 
     }));
@@ -42,4 +59,13 @@ describe('MovieController', function(){
         expect(mockAside().toggle).toHaveBeenCalled();
     });
 
+    it('should pop a dialog when the comment button is clicked', function(){
+        MovieDetailController.comment();
+        expect(mockDialog.show).toHaveBeenCalled();
+    });
+
+    it('should pop a bottom sheet when the share button is clicked', function(){
+        MovieDetailController.share();
+        expect(mockBottom.show).toHaveBeenCalled();
+    });
 });
