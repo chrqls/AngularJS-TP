@@ -3,7 +3,8 @@
 
     angular.module('movies',[
         'ngMaterial',
-        'ui.router'
+        'ui.router',
+        'comments'
     ])
     .config(function($stateProvider){
         $stateProvider
@@ -34,7 +35,7 @@
                 },
                 views: {
                     movies: {
-                        controller:'MovieDetailController as detailCtrl',
+                        controller:'MovieDetailController as ctrl',
                         templateUrl: 'src/movies/views/movie-detail.tpl.html'
                     }
                 }

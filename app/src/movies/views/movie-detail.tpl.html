@@ -1,9 +1,9 @@
 <article layout="column" md-content>
     <div layout="row">
         <h1 flex>
-            {{ detailCtrl.movie.title }}
+            {{ ctrl.movie.title }}
         </h1>
-        <span>{{ detailCtrl.movie.releaseYear }}</span>
+        <span>{{ ctrl.movie.releaseYear }}</span>
     </div>
     <header layout="row" >
         <span flex></span>
@@ -14,7 +14,7 @@
                 </md-button>
             </md-fab-trigger>
             <md-fab-actions>
-                <md-button aria-label="comment" class="md-fab md-raised md-mini">
+                <md-button aria-label="comment" class="md-fab md-raised md-mini" ng-click="ctrl.comment($event)">
                     <md-icon md-font-icon="ion-chatbox"></md-icon>
                 </md-button>
                 <md-button aria-label="social" class="md-fab md-raised md-mini">
@@ -27,19 +27,19 @@
 
         </md-fab-speed-dial>
     </header>
-    <img ng-src="{{ detailCtrl.movie.poster }}" alt="{{ detailCtrl.movie.title }}"/>
+    <img ng-src="{{ ctrl.movie.poster }}" alt="{{ ctrl.movie.title }}"/>
 
     <section>
         <p>
-            {{ detailCtrl.movie.synopsis }}
+            {{ ctrl.movie.synopsis }}
         </p>
         <p>
             <span>Réalisateur : </span>
-            <span>{{ detailCtrl.movie.directors }}</span>
+            <span>{{ ctrl.movie.directors }}</span>
         </p>
         <p>
             <span>Casting : </span>
-            <span ng-repeat="actor in detailCtrl.movie.actors.split(', ')">{{ actor }}</span>
+            <span ng-repeat="actor in ctrl.movie.actors.split(', ')">{{ actor }}</span>
         </p>
     </section>
 
