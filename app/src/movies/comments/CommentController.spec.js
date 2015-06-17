@@ -8,7 +8,7 @@ describe('CommentController',function(){
     };
 
     var mockDialog = {
-        close: function(){
+        hide: function(){
 
         },
         cancel: function(){
@@ -31,7 +31,7 @@ describe('CommentController',function(){
         };
 
         spyOn(commentFactoryMock(),'create').and.callThrough();
-        spyOn(mockDialog,'close').and.callThrough();
+        spyOn(mockDialog,'hide').and.callThrough();
         spyOn(mockDialog,'cancel').and.callThrough();
 
         CommentController = $controller('CommentController',{
@@ -42,7 +42,7 @@ describe('CommentController',function(){
 
     it('should call the create method of commentFactory when createComment method is called', function(done){
         CommentController
-            .create(comment)
+            .createComment(comment)
             .then(function(createdComment){
                 expect(commentFactoryMock.create).toHaveBeenCalled();
             })
@@ -51,7 +51,7 @@ describe('CommentController',function(){
 
     it('should respond with a comment object when create method is called', function(done){
         CommentController
-            .create(comment)
+            .createComment(comment)
             .then(function(createdComment){
                 expect(createdComment.id).toBeDefined();
                 expect(createdComment.content).toBe('foobar');
@@ -61,9 +61,9 @@ describe('CommentController',function(){
 
     it('should call the close method of $mdDialog service when createComment method is called', function(done){
         CommentController
-            .create(comment)
+            .createComment(comment)
             .then(function(){
-                expect(mockDialog.close).toHaveBeenCalled();
+                expect(mockDialog.hide).toHaveBeenCalled();
             })
             .finally(done)
     });

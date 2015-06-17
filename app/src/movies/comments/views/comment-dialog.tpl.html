@@ -1,5 +1,5 @@
 <md-dialog aria-label="new comment for {{ dialog.movie.title }}">
-    <form>
+    <form name="commentForm" ng-submit="dialog.createComment(dialog.comment)">
         <md-toolbar class="md-accent">
             <div class="md-toolbar-tools" layout="row">
                 <h5>New Comment</h5>
@@ -10,10 +10,22 @@
             </div>
         </md-toolbar>
         <md-dialog-content>
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            <md-input-container>
+                <label>Title of your comment...</label>
+                <input type="text" ng-model="dialog.comment.title"/>
+            </md-input-container>     
+            <md-input-container>
+                <label>Your comment ...</label>
+                <textarea name="content" ng-model="dialog.comment.content"></textarea>
+            </md-input-container>
         </md-dialog-content>
         <div class="md-actions" layout="row">
-
+            <md-button flex type="reset" class="md-warn md-raised">
+                Reset
+            </md-button>
+            <md-button flex type="submit" class="md-primary md-raised">
+                Submit
+            </md-button>
         </div>
     </form>
 </md-dialog>

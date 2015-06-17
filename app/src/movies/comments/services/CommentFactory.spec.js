@@ -19,18 +19,18 @@ describe('CommentService', function(){
 
     beforeEach(module('comments'));
 
-    beforeEach(inject(function(_commentFactory_, _$httpBakend_){
+    beforeEach(inject(function(_commentFactory_, _$httpBackend_){
         commentFactory = _commentFactory_;
-        $httpBackend = _$httpBakend_;
-        $httpBackend.whenPOST('http://localhost:3000/commenst').respond(comment);
+        $httpBackend = _$httpBackend_;
+        $httpBackend.whenPOST('http://localhost:3000/comments').respond(comment);
         $httpBackend.whenGET('http://localhost:3000/comments?movie=2').respond(comments);
     }));
 
     it('should respond the comments for a given movie when method getByMovie is called', function(){
-        commentFactory.getByMovie(2);
+        commentFactory.findByMovie(2);
         $httpBackend.expectGET('http://localhost:3000/comments?movie=2');
         $httpBackend.flush();
-        expect(commentFactory.comments).toBe(comments);
+        expect(commentFactory.getComments().length).toBe(2);
     });
 
     it('should respond with the created comment when method create is called', function(){
@@ -42,7 +42,7 @@ describe('CommentService', function(){
             });
         $httpBackend.expectPOST('http://localhost:3000/comments');
         $httpBackend.flush();
-        expect(createdComment).toBe(comment);
+        expect(createdComment.id).toBe(comment.id);
     });
 
 });

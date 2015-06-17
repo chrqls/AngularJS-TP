@@ -64,8 +64,4 @@ describe('MovieController', function(){
         expect(mockDialog.show).toHaveBeenCalled();
     });
 
-    it('should pop a bottom sheet when the share button is clicked', function(){
-        MovieDetailController.share();
-        expect(mockBottom.show).toHaveBeenCalled();
-    });
 });
