@@ -5,19 +5,31 @@ describe('CommentService', function(){
 
     var comment = {
         id: 1,
-        movie: 2,
-        content: 'foo',
-        author: 2
+        content: 'foo'
     };
 
     var comments = [comment,{
         id:2,
-        movie:2,
-        content:'bar',
-        author: 1
+        content:'bar'
     }];
 
-    beforeEach(module('comments'));
+    var movieFactoryMock = {
+        selected: {
+            id: 2
+        }
+    };
+
+    var userFactoryMock = {
+        selected : {
+            id : 2
+        }
+    };
+
+    beforeEach(module('app',function($provide){
+        $provide.value('movieFactory',movieFactoryMock);
+        $provide.value('userFactory',userFactoryMock);
+    }));
+
 
     beforeEach(inject(function(_commentFactory_, _$httpBackend_){
         commentFactory = _commentFactory_;
@@ -42,7 +54,8 @@ describe('CommentService', function(){
             });
         $httpBackend.expectPOST('http://localhost:3000/comments');
         $httpBackend.flush();
-        expect(createdComment.id).toBe(comment.id);
+        expect(createdComment.movie).toBe(movieFactoryMock.selected.id);
+        expect(createdComment.author).toBe(userFactoryMock.selected.id);
     });
 
 });

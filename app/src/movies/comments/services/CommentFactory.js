@@ -14,7 +14,7 @@
      * manage movies model (REST and cache)
      *
      */
-    function commentFactory($q,$http){
+    function commentFactory($q,$http,userFactory, movieFactory){
 
         var URI = 'http://localhost:3000/comments';
 
@@ -23,6 +23,8 @@
         return {
             create: function(comment){
                 return $q(function(resolve){
+                    comment.author = userFactory.selected.id;
+                    comment.movie = movieFactory.selected.id;
                     $http
                         .post(URI,comment)
                         .success(function(CreatedComment){
