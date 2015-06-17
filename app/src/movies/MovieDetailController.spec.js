@@ -1,6 +1,7 @@
 describe('MovieController', function(){
 
-    var MovieDetailController;
+    var MovieDetailController,
+        mockAside;
     var movie = {
         name: 'foo'
     };
@@ -8,6 +9,14 @@ describe('MovieController', function(){
     beforeEach(module('movies'));
 
     beforeEach(inject(function($controller){
+        var data = {
+            toggle: function(){
+
+            }
+        };
+        mockAside = function(){
+            return data;
+        };
         var movieFactoryMock = function(){
             var selected = movie;
             return {
@@ -16,14 +25,21 @@ describe('MovieController', function(){
                 }
             };
         };
+        spyOn(mockAside(),'toggle').and.callThrough();
 
         MovieDetailController = $controller('MovieDetailController',{
-            movieFactory: movieFactoryMock()
+            movieFactory: movieFactoryMock(),
+            $mdSidenav: mockAside
         });
+
     }));
 
     it('should have an movie object defined', function(){
         expect(MovieDetailController.movie).toBe(movie);
+    });
+
+    it('should close the aside', function(){
+        expect(mockAside().toggle).toHaveBeenCalled();
     });
 
 });

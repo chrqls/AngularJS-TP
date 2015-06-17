@@ -18,8 +18,8 @@
 
             $mdThemingProvider.theme('default')
                 .primaryPalette('teal')
-                .warnPalette('brown')
-                .accentPalette('red');
+                .warnPalette('red')
+                .accentPalette('grey');
 
         });
 })();

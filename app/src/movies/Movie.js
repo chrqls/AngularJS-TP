@@ -24,6 +24,20 @@
                         templateUrl: 'src/movies/views/movies.tpl.html'
                     }
                 }
-            });
+            })
+            .state('movies.detail',{
+                url: '/detail/:id',
+                resolve: {
+                    movie: function($stateParams,movieFactory){
+                        return movieFactory.findOne($stateParams.id)
+                    }
+                },
+                views: {
+                    movies: {
+                        controller:'MovieDetailController as detailCtrl',
+                        templateUrl: 'src/movies/views/movie-detail.tpl.html'
+                    }
+                }
+            })
     });
 })();

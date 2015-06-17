@@ -1,0 +1,46 @@
+<article layout="column" md-content>
+    <div layout="row">
+        <h1 flex>
+            {{ detailCtrl.movie.title }}
+        </h1>
+        <span>{{ detailCtrl.movie.releaseYear }}</span>
+    </div>
+    <header layout="row" >
+        <span flex></span>
+        <md-fab-speed-dial md-direction="left" class="md-scale md-accent md-raised">
+            <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab">
+                    <md-icon md-font-icon="ion-chevron-left"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <md-button aria-label="comment" class="md-fab md-raised md-mini">
+                    <md-icon md-font-icon="ion-chatbox"></md-icon>
+                </md-button>
+                <md-button aria-label="twitter" class="md-fab md-raised md-mini">
+                    <md-icon md-font-icon="ion-social-twitter"></md-icon>
+                </md-button>
+                <md-button aria-label="facebook" class="md-fab md-raised md-mini">
+                    <md-icon md-font-icon="ion-social-facebook"></md-icon>
+                </md-button>
+            </md-fab-actions>
+
+        </md-fab-speed-dial>
+    </header>
+    <img ng-src="{{ detailCtrl.movie.poster }}" alt="{{ detailCtrl.movie.title }}"/>
+
+    <section>
+        <p>
+            {{ detailCtrl.movie.synopsis }}
+        </p>
+        <p>
+            <span>Réalisateur : </span>
+            <span>{{ detailCtrl.movie.directors }}</span>
+        </p>
+        <p>
+            <span>Casting : </span>
+            <span ng-repeat="actor in detailCtrl.movie.actors.split(', ')">{{ actor }}</span>
+        </p>
+    </section>
+
+</article>

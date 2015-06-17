@@ -10,14 +10,14 @@
             <md-list>
                 <md-list-item class="md-2-line" ng-repeat="movie in ::ctrl.movies">
                     <img ng-src="{{ movie.poster }}" class="md-avatar" alt="{{movie.name}}" />
-                    <div class="md-list-item-text">
+                    <div class="md-list-item-text" ui-sref="movies.detail({ id : movie.id})">
                         <h3>{{ movie.title }}</h3>
                     </div>
                 </md-list-item>
             </md-list>
         </md-content>
     </md-sidenav>
-    <md-content layout="column" layout-padding>
+    <md-content layout="column" layout-padding layout-fill ui-view="movies">
         <h1>Welcome !!!!</h1>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque culpa doloremque eligendi error facere harum illum impedit nam officia omnis provident,

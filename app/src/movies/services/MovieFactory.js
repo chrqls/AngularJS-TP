@@ -17,7 +17,8 @@
 
         var URI = 'http://localhost:3000/movies';
 
-        var movies;
+        var movies,
+            selected;
 
         return {
             findAll: function(){
@@ -30,8 +31,21 @@
                         });
                 });
             },
+            findOne: function(id){
+                return $q(function(resolve){
+                    $http
+                        .get(URI+'/'+id)
+                        .success(function(data){
+                            selected = data;
+                            resolve();
+                        });
+                });
+            },
             get: function(){
                 return movies;
+            },
+            getSelected: function(){
+                return selected;
             }
         };
 
