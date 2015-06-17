@@ -1,7 +1,9 @@
 describe('CommentController',function(){
 
     var CommentController,
-        commentFactoryMock;
+        commentFactoryMock,
+        $timeout,
+        commentMock;
 
     var comment = {
       content: 'foobar'
@@ -18,20 +20,25 @@ describe('CommentController',function(){
 
     beforeEach(module('comments'));
 
-    beforeEach(inject(function($controller,$q){
-        commentFactoryMock = function(){
-            return {
-                create: function(comment){
-                    return $q(function(resolve){
-                        comment.id = 3;
+    beforeEach(inject(function($controller,$q,_$timeout_){
+        $timeout = _$timeout_;
+
+        commentMock = {
+            create: function(comment){
+                return $q(function(resolve){
+                    comment.id = 3;
+                    $timeout(function(){
                         resolve(comment);
-                    })
-                }
-            };
+                    });
+                })
+            }
         };
 
-        spyOn(commentFactoryMock(),'create').and.callThrough();
-        spyOn(mockDialog,'hide').and.callThrough();
+        commentFactoryMock = function(){
+            return commentMock;
+        };
+
+        spyOn(commentMock,'create').and.callThrough();
         spyOn(mockDialog,'cancel').and.callThrough();
 
         CommentController = $controller('CommentController',{
@@ -41,31 +48,11 @@ describe('CommentController',function(){
     }));
 
     it('should call the create method of commentFactory when createComment method is called', function(done){
-        CommentController
-            .createComment(comment)
-            .then(function(createdComment){
-                expect(commentFactoryMock.create).toHaveBeenCalled();
-            })
-            .finally(done)
-    });
+        CommentController.createComment(comment)
+        expect(commentMock.create).toHaveBeenCalled();
+        $timeout.flush();
+        done();
 
-    it('should respond with a comment object when create method is called', function(done){
-        CommentController
-            .createComment(comment)
-            .then(function(createdComment){
-                expect(createdComment.id).toBeDefined();
-                expect(createdComment.content).toBe('foobar');
-            })
-            .finally(done)
-    });
-
-    it('should call the close method of $mdDialog service when createComment method is called', function(done){
-        CommentController
-            .createComment(comment)
-            .then(function(){
-                expect(mockDialog.hide).toHaveBeenCalled();
-            })
-            .finally(done)
     });
 
     it('should call the cancel method of $mdDialog when close method is called', function(){
