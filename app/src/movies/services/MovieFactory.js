@@ -6,11 +6,11 @@
 
     /**
      * @ngdoc factory
-     * @name users.factory:UserFactory
+     * @name movies.factory:moviesFactory
      * @function
      *
      * @description
-     * manage users data communicate with a rest api and store data in cache
+     * manage movies model (REST and cache)
      *
      */
     function movieFactory($q,$http){

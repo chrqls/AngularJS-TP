@@ -4,6 +4,16 @@
     angular.module('comments')
         .factory('commentFactory',commentFactory);
 
+
+    /**
+     * @ngdoc factory
+     * @name comments.factory:commentFactory
+     * @function
+     *
+     * @description
+     * manage movies model (REST and cache)
+     *
+     */
     function commentFactory($q,$http){
 
         var URI = 'http://localhost:3000/comments';
@@ -17,8 +27,8 @@
                         .post(URI,comment)
                         .success(function(CreatedComment){
                             resolve(CreatedComment);
-                        })
-                })
+                        });
+                });
             },
             findByMovie: function(id){
                 return $q(function(resolve){
@@ -27,13 +37,13 @@
                         .success(function(commentsData){
                             comments = commentsData;
                             resolve(comments);
-                        })
-                })
+                        });
+                });
             },
             getComments: function(){
                 return comments;
             }
-        }
+        };
     }
 
 })();

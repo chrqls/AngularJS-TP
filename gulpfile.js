@@ -25,7 +25,8 @@ gulp.task('unit','run unit test once', function (done) {
     karma.start({
         configFile: pathToKarmaConfigFile,
         singleRun: true,
-        autoWatch: false
+        autoWatch: false,
+        browser: ['Chrome','Firefox']
     }, done);
 });
 

@@ -4,6 +4,16 @@
     angular.module('comments')
         .controller('CommentController',CommentController);
 
+
+    /**
+     * @ngdoc controller
+     * @name comments.controller:CommentController
+     * @function
+     *
+     * @description
+     * manage the comment creation dialog
+     *
+     */
     function CommentController($mdDialog, commentFactory){
         var dialog = this;
 
@@ -16,7 +26,7 @@
                 .create(comment)
                 .then(function(){
                     $mdDialog.hide();
-                })
+                });
         };
     }
 

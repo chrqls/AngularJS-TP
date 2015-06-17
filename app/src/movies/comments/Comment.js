@@ -3,6 +3,6 @@
 
     angular.module('comments',[
         'ngMaterial'
-    ])
+    ]);
 
 })();

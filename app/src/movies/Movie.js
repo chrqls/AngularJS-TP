@@ -30,7 +30,7 @@
                 url: '/detail/:id',
                 resolve: {
                     movie: function($stateParams,movieFactory){
-                        return movieFactory.findOne($stateParams.id)
+                        return movieFactory.findOne($stateParams.id);
                     }
                 },
                 views: {
@@ -39,6 +39,6 @@
                         templateUrl: 'src/movies/views/movie-detail.tpl.html'
                     }
                 }
-            })
+            });
     });
 })();

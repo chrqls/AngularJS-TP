@@ -6,7 +6,7 @@
 
     /**
      * @ngdoc factory
-     * @name users.factory:UserFactory
+     * @name users.factory:userFactory
      * @function
      *
      * @description

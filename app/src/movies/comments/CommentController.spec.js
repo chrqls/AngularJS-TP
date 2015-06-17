@@ -30,7 +30,7 @@ describe('CommentController',function(){
                     $timeout(function(){
                         resolve(comment);
                     });
-                })
+                });
             }
         };
 
@@ -48,7 +48,7 @@ describe('CommentController',function(){
     }));
 
     it('should call the create method of commentFactory when createComment method is called', function(done){
-        CommentController.createComment(comment)
+        CommentController.createComment(comment);
         expect(commentMock.create).toHaveBeenCalled();
         $timeout.flush();
         done();
