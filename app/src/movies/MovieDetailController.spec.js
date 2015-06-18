@@ -5,8 +5,16 @@ describe('MovieController', function(){
         mockDialog,
         mockBottom;
     var movie = {
-        name: 'foo'
-    };
+            name: 'foo'
+        },
+        comments = [
+            {
+                title:'foo'
+            },
+            {
+                title: 'bar'
+            }
+        ];
 
     beforeEach(module('movies'));
 
@@ -46,6 +54,7 @@ describe('MovieController', function(){
 
         MovieDetailController = $controller('MovieDetailController',{
             movieFactory: movieFactoryMock(),
+            comments: comments,
             $mdSidenav: mockAside,
             $mdDialog: mockDialog,
             $mdBottomSheet: mockBottom
@@ -64,6 +73,10 @@ describe('MovieController', function(){
     it('should pop a dialog when the comment button is clicked', function(){
         MovieDetailController.comment();
         expect(mockDialog.show).toHaveBeenCalled();
+    });
+
+    it('should have a comments property fill with an array',function(){
+        expect(MovieDetailController.comments.length).toBe(2);
     });
 
 });

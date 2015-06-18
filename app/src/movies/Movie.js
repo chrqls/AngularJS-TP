@@ -31,6 +31,9 @@
                 resolve: {
                     movie: function($stateParams,movieFactory){
                         return movieFactory.findOne($stateParams.id);
+                    },
+                    comments: function($stateParams,commentFactory){
+                        return commentFactory.findByMovie($stateParams.id);
                     }
                 },
                 views: {

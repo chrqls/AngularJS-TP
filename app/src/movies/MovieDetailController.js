@@ -14,13 +14,15 @@
      * manage the page of one single movie
      *
      */
-    function MovieDetailController(movieFactory,$mdSidenav, $mdDialog, $mdToast){
+    function MovieDetailController(movieFactory,$mdSidenav, $mdDialog, $mdToast, comments){
         var ctrl = this;
 
         $mdSidenav('movies').toggle();
 
         ctrl.movie = movieFactory.getSelected();
 
+        ctrl.comments = comments;
+        
         ctrl.comment = function(event){
             $mdDialog
                 .show({

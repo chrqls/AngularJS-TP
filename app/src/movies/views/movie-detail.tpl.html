@@ -1,4 +1,4 @@
-<article layout="column" md-content>
+<md-content layout="column">
     <div layout="row">
         <h1 flex>
             {{ ctrl.movie.title }}
@@ -41,6 +41,13 @@
             <span>Casting : </span>
             <span ng-repeat="actor in ctrl.movie.actors.split(', ')">{{ actor }}</span>
         </p>
+
+        <section class="comments-area">
+            <div ng-repeat="comment in ctrl.comments">
+                <h5>{{comment.title}}</h5>
+                <p>{{comment.content}}</p>
+            </div>
+        </section>
     </section>
 
-</article>
+</md-content>
