@@ -1,4 +1,4 @@
-<md-content layout="column">
+<article layout="column">
     <div layout="row">
         <h1 flex>
             {{ ctrl.movie.title }}
@@ -42,12 +42,15 @@
             <span ng-repeat="actor in ctrl.movie.actors.split(', ')">{{ actor }}</span>
         </p>
 
-        <section class="comments-area">
-            <div ng-repeat="comment in ctrl.comments">
-                <h5>{{comment.title}}</h5>
-                <p>{{comment.content}}</p>
-            </div>
-        </section>
+        <md-list class="comments-area" ng-if="ctrl.comments">
+            <h2>Commentaires</h2>
+            <md-list-item class="md-3-line" ng-repeat="comment in ctrl.comments">
+                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                <div class="md-list-item-text">
+                    <h3>{{comment.title }}</h3>
+                    <p>{{ comment.content }}</p>
+                </div>
+            </md-list-item>
+        </md-list>
     </section>
-
-</md-content>
+</article>
