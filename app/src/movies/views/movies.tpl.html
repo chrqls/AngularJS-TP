@@ -8,7 +8,7 @@
         </md-toolbar>
         <md-content>
             <md-list>
-                <md-list-item class="md-2-line" ng-repeat="movie in ::ctrl.movies">
+                <md-list-item class="md-2-line" ng-repeat="movie in ::ctrl.movies" ui-sref-active="active">
                     <img ng-src="{{ movie.poster }}" class="md-avatar" alt="{{movie.name}}" />
                     <div class="md-list-item-text" ui-sref="movies.detail({ id : movie.id})">
                         <h3>{{ movie.title }}</h3>

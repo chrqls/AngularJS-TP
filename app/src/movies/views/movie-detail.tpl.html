@@ -45,7 +45,8 @@
         <md-list class="comments-area" ng-if="ctrl.comments">
             <h2>Commentaires</h2>
             <md-list-item class="md-3-line" ng-repeat="comment in ctrl.comments">
-                <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                <user-card user-id="{{ comment.author }}"></user-card>
+                <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
                 <div class="md-list-item-text">
                     <h3>{{comment.title }}</h3>
                     <p>{{ comment.content }}</p>

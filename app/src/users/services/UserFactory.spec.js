@@ -2,9 +2,12 @@ describe('UserController', function(){
 
     var usersFactory;
     var $httpBackend;
-    var users = [{
+
+    var user = {
+        id:2,
         name: 'foo'
-    }];
+    };
+    var users = [user];
 
     beforeEach(module('users'));
 
@@ -12,11 +15,9 @@ describe('UserController', function(){
         usersFactory = _userFactory_;
         $httpBackend = _$httpBackend_;
         $httpBackend.whenGET('http://localhost:3000/users').respond(users);
-
         usersFactory.findAll();
         $httpBackend.expectGET('http://localhost:3000/users');
         $httpBackend.flush();
-
     }));
 
     afterEach(function () {
@@ -31,5 +32,10 @@ describe('UserController', function(){
     it('should store the selectedUser', function(){
         usersFactory.select(0);
         expect(usersFactory.getSelected().name).toBe(users[0].name);
+    });
+
+    it('should respond with a user object', function(){
+        var data = usersFactory.get(2);
+        expect(data.id).toBe(user.id);
     });
 });

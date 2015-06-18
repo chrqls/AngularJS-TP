@@ -1,0 +1,10 @@
+<div>
+    <md-icon md-svg-icon="{{ card.user.avatar }}"  class="md-avatar">
+        <md-tooltip>
+            {{ card.user.name }}
+        </md-tooltip>
+    </md-icon>
+    <div ng-if="card.complex">
+        <h4>{{ card.user.name }}</h4>
+    </div>
+</div>

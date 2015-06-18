@@ -132,3 +132,8 @@ span.name {
 .comments-area{
     border-top:#000000 1px solid;
 }
+
+.active{
+    opacity:0.5;
+    box-shadow: 2px 2px 5px teal;
+}

@@ -3,14 +3,15 @@ describe('MovieController', function(){
     var MovieDetailController,
         mockAside,
         mockDialog,
-        mockBottom;
+        $timeout;
     var movie = {
             name: 'foo'
         },
+        comment = {
+            title:'foo'
+        },
         comments = [
-            {
-                title:'foo'
-            },
+            comment,
             {
                 title: 'bar'
             }
@@ -18,7 +19,8 @@ describe('MovieController', function(){
 
     beforeEach(module('movies'));
 
-    beforeEach(inject(function($controller,$q){
+    beforeEach(inject(function($controller,$q,_$timeout_){
+        $timeout = _$timeout_;
         var data = {
             toggle: function(){
 
@@ -30,13 +32,10 @@ describe('MovieController', function(){
         mockDialog = {
             show: function(){
                 return $q(function(resolve){
-                    resolve();
+                    $timeout(function(){
+                        resolve(comment);
+                    })
                 });
-            }
-        };
-        mockBottom = {
-            show: function(){
-
             }
         };
         var movieFactoryMock = function(){
@@ -50,14 +49,12 @@ describe('MovieController', function(){
 
         spyOn(mockAside(),'toggle').and.callThrough();
         spyOn(mockDialog,'show').and.callThrough();
-        spyOn(mockBottom,'show').and.callThrough();
 
         MovieDetailController = $controller('MovieDetailController',{
             movieFactory: movieFactoryMock(),
             comments: comments,
             $mdSidenav: mockAside,
-            $mdDialog: mockDialog,
-            $mdBottomSheet: mockBottom
+            $mdDialog: mockDialog
         });
 
     }));
@@ -77,6 +74,12 @@ describe('MovieController', function(){
 
     it('should have a comments property fill with an array',function(){
         expect(MovieDetailController.comments.length).toBe(2);
+    });
+
+    it('should add the created comment to the comment list', function(){
+        MovieDetailController.comment();
+        $timeout.flush();
+        expect(MovieDetailController.comments.length).toBe(3);
     });
 
 });

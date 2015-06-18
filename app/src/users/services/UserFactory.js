@@ -31,8 +31,16 @@
                         });
                 });
             },
-            get: function(){
-                return users;
+            get: function(id){
+                if(id){
+                    for(var i= 0; i < users.length;i++){
+                        if(users[i].id == id){
+                            return users[i];
+                        }
+                    }
+                }else{
+                    return users;
+                }
             },
             select: function(id){
                 selected = users[id];

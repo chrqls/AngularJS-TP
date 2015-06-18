@@ -22,7 +22,7 @@
         ctrl.movie = movieFactory.getSelected();
 
         ctrl.comments = comments;
-        
+
         ctrl.comment = function(event){
             $mdDialog
                 .show({
@@ -37,6 +37,7 @@
                             .position('top left')
                             .hideDelay(3000)
                     );
+                    ctrl.comments.push(comment);
                 })
         };
 
