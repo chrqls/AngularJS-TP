@@ -23,8 +23,8 @@
         return {
             create: function(comment){
                 return $q(function(resolve){
-                    comment.author = userFactory.selected.id;
-                    comment.movie = movieFactory.selected.id;
+                    comment.author = userFactory.getSelected().id;
+                    comment.movie = movieFactory.getSelected().id;
                     $http
                         .post(URI,comment)
                         .success(function(CreatedComment){

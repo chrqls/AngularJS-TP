@@ -14,14 +14,18 @@ describe('CommentService', function(){
     }];
 
     var movieFactoryMock = {
-        selected: {
-            id: 2
+        getSelected: function(){
+            return {
+                id : 2
+            }
         }
     };
 
     var userFactoryMock = {
-        selected : {
-            id : 2
+        getSelected: function(){
+            return {
+                id : 2
+            }
         }
     };
 
@@ -54,8 +58,8 @@ describe('CommentService', function(){
             });
         $httpBackend.expectPOST('http://localhost:3000/comments');
         $httpBackend.flush();
-        expect(createdComment.movie).toBe(movieFactoryMock.selected.id);
-        expect(createdComment.author).toBe(userFactoryMock.selected.id);
+        expect(createdComment.movie).toBe(movieFactoryMock.getSelected().id);
+        expect(createdComment.author).toBe(userFactoryMock.getSelected().id);
     });
 
 });

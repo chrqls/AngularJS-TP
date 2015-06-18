@@ -1,6 +1,7 @@
 describe('UserController', function(){
 
     var UserController,
+        userFactoryMock,
         $stateMock = {
             go: function(){
 
@@ -8,18 +9,29 @@ describe('UserController', function(){
         };
 
     var user = {
+        id:0,
         name: 'foo'
     };
 
 
-    beforeEach(module('users'));
+    beforeEach(module('users', function(){
+
+    }));
 
     beforeEach(inject(function($controller){
-        var userFactoryMock = function(){
-            var users = [user];
+        userFactoryMock = function(){
+            var users = [user],
+                selected;
             return {
                 get: function(){
                     return users;
+                },
+                select: function(id){
+                    selected = users[id];
+                    console.log(selected)
+                },
+                getSelected: function(){
+                    return selected;
                 }
             };
         };
@@ -44,8 +56,13 @@ describe('UserController', function(){
         expect(UserController.selectedUser).toBe(user);
     });
 
-    it('should redirect to movies state when alogin method is called', function(){
+    it('should redirect to movies state when a login method is called', function(){
         UserController.login();
         expect($stateMock.go).toHaveBeenCalled();
+    });
+
+    it('should store the selectedUser in the userFactory attribute selected on login', function(){
+        UserController.login();
+        expect(userFactoryMock().getSelected().id).toBe(user.id);
     });
 });

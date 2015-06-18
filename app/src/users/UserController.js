@@ -24,6 +24,7 @@
         this.users = userFactory.get();
 
         this.login = function(){
+            userFactory.select(self.selectedIndex);
             $state.go('movies');
         };
     }
