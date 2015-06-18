@@ -10,7 +10,7 @@ describe('MovieController', function(){
 
     beforeEach(module('movies'));
 
-    beforeEach(inject(function($controller){
+    beforeEach(inject(function($controller,$q){
         var data = {
             toggle: function(){
 
@@ -21,7 +21,9 @@ describe('MovieController', function(){
         };
         mockDialog = {
             show: function(){
-
+                return $q(function(resolve){
+                    resolve();
+                });
             }
         };
         mockBottom = {

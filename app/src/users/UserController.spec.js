@@ -14,11 +14,7 @@ describe('UserController', function(){
     };
 
 
-    beforeEach(module('users', function(){
-
-    }));
-
-    beforeEach(inject(function($controller){
+    beforeEach(module('users', function($provide){
         userFactoryMock = function(){
             var users = [user],
                 selected;
@@ -28,20 +24,23 @@ describe('UserController', function(){
                 },
                 select: function(id){
                     selected = users[id];
-                    console.log(selected)
                 },
                 getSelected: function(){
                     return selected;
                 }
             };
-        };
+        }();
+        $provide.value('userFactory',userFactoryMock)
+    }));
+
+    beforeEach(inject(function($controller){
 
         UserController = $controller('UserController',{
-            userFactory: userFactoryMock(),
             $state: $stateMock
         });
+
         UserController.selectedIndex = 0;
-        UserController.users[0] = user;
+        UserController.users = [user];
 
         spyOn($stateMock,'go').and.callThrough();
 
@@ -63,6 +62,6 @@ describe('UserController', function(){
 
     it('should store the selectedUser in the userFactory attribute selected on login', function(){
         UserController.login();
-        expect(userFactoryMock().getSelected().id).toBe(user.id);
+        expect(userFactoryMock.getSelected().id).toBe(user.id);
     });
 });
