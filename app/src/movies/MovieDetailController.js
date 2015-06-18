@@ -29,7 +29,12 @@
                     targetEvent: event
                 })
                 .then(function(comment){
-                    $mdToast.show('comment created')
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .content('Comment created')
+                            .position('top left')
+                            .hideDelay(3000)
+                    );
                 })
         };
     }
