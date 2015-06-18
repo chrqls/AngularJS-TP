@@ -10,7 +10,7 @@
         ])
         .config(function($mdThemingProvider, $mdIconProvider, $locationProvider){
 
-            $locationProvider.html5Mode(true);
+            //$locationProvider.html5Mode(true);
 
             $mdIconProvider
                 .defaultIconSet("./assets/svg/avatars.svg", 128);

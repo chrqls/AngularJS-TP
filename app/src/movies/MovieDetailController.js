@@ -14,7 +14,7 @@
      * manage the page of one single movie
      *
      */
-    function MovieDetailController(movieFactory,$mdSidenav, $mdDialog){
+    function MovieDetailController(movieFactory,$mdSidenav, $mdDialog, $mdToast){
         var ctrl = this;
 
         $mdSidenav('movies').toggle();
@@ -27,7 +27,10 @@
                     templateUrl: 'src/movies/comments/views/comment-dialog.tpl.html',
                     controller: 'CommentController as dialog',
                     targetEvent: event
-                });
+                })
+                .then(function(comment){
+                    $mdToast.show('comment created')
+                })
         };
     }
 

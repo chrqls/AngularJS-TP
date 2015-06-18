@@ -9,7 +9,7 @@
         .config(function($stateProvider){
             $stateProvider
                 .state('users',{
-                    url: '/',
+                    url: '',
                     resolve: {
                         users: function(userFactory){
                             return userFactory.findAll();

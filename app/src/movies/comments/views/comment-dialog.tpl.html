@@ -1,31 +1,51 @@
-<md-dialog aria-label="new comment for {{ dialog.movie.title }}">
+<md-dialog aria-label="new comment">
     <form name="commentForm" ng-submit="dialog.createComment(dialog.comment)">
         <md-toolbar class="md-accent">
             <div class="md-toolbar-tools" layout="row">
                 <h5>New Comment</h5>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="dialog.close()">
-                    <md-icon md-font-icon="ion-android-close" aria-label="Close dialog" ></md-icon>
+                    <md-icon md-font-icon="ion-android-close" aria-label="Close dialog" class="md-primary"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>
         <md-dialog-content>
             <md-input-container>
                 <label>Title of your comment...</label>
-                <input type="text" ng-model="dialog.comment.title"/>
-            </md-input-container>     
+                <input type="text" md-maxlength="20" pattern="[a-zA-Z0-9]+" name="title" autofocus="true" ng-model="dialog.comment.title" required/>
+                <div ng-messages="commentForm.title.$error" ng-show="commentForm.title.$touched || commentForm.$submitted">
+                    <div ng-message="required">
+                        title is required
+                    </div>
+                    <div ng-message="pattern">
+                        Only letter and number
+                    </div>
+                    <div ng-message="md-maxlength">
+                        50 character max
+                    </div>
+                </div>
+            </md-input-container>
             <md-input-container>
                 <label>Your comment ...</label>
-                <textarea name="content" ng-model="dialog.comment.content"></textarea>
+                <textarea name="content" ng-model="dialog.comment.content" md-maxlength="156"  required></textarea>
+                <div ng-messages="commentForm.content.$error" ng-show="commentForm.content.$touched || commentForm.$submitted">
+                    <div ng-message="required">
+                        content is required
+                    </div>
+                    <div ng-message="md-maxlength">
+                        156 character max
+                    </div>
+                </div>
             </md-input-container>
+            <div class="row">
+                <md-button type="reset" flex class="md-raised md-warn">
+                    Reset
+                </md-button>
+                <md-button type="submit" flex class="md-primary md-raised">
+                    Submit
+                </md-button>
+            </div>
         </md-dialog-content>
-        <div class="md-actions" layout="row">
-            <md-button flex type="reset" class="md-warn md-raised">
-                Reset
-            </md-button>
-            <md-button flex type="submit" class="md-primary md-raised">
-                Submit
-            </md-button>
-        </div>
+
     </form>
 </md-dialog>

@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('comments',[
-        'ngMaterial'
+        'ngMaterial',
+        'ngMessages'
     ]);
 
 })();
