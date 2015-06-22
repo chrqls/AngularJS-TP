@@ -22,8 +22,8 @@ describe('UserController', function(){
                 get: function(){
                     return users;
                 },
-                select: function(id){
-                    selected = users[id];
+                select: function(user){
+                    selected = user;
                 },
                 getSelected: function(){
                     return selected;
@@ -39,8 +39,6 @@ describe('UserController', function(){
             $state: $stateMock
         });
 
-        UserController.selectedIndex = 0;
-        UserController.users = [user];
 
         spyOn($stateMock,'go').and.callThrough();
 
@@ -50,10 +48,6 @@ describe('UserController', function(){
         expect(UserController.users.length).toBe(1);
     });
 
-    it('should give selectedUser attribute a value when userChange method is called', function(){
-        UserController.userChange();
-        expect(UserController.selectedUser).toBe(user);
-    });
 
     it('should redirect to movies state when a login method is called', function(){
         UserController.login();
@@ -61,6 +55,7 @@ describe('UserController', function(){
     });
 
     it('should store the selectedUser in the userFactory attribute selected on login', function(){
+        UserController.selectedUser = user;
         UserController.login();
         expect(userFactoryMock.getSelected().id).toBe(user.id);
     });

@@ -24,8 +24,8 @@
         dialog.createComment = function(comment){
             commentFactory
                 .create(comment)
-                .then(function(){
-                    $mdDialog.hide();
+                .then(function(createdComment){
+                    $mdDialog.hide(createdComment);
                 });
         };
     }

@@ -42,7 +42,7 @@
             <span ng-repeat="actor in ctrl.movie.actors.split(', ')">{{ actor }}</span>
         </p>
 
-        <md-list class="comments-area" ng-if="ctrl.comments">
+        <md-list class="comments-area" ng-if="ctrl.comments.length > 0">
             <h2>Commentaires</h2>
             <md-list-item class="md-3-line" ng-repeat="comment in ctrl.comments">
                 <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />

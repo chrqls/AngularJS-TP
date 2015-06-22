@@ -31,6 +31,7 @@
                     targetEvent: event
                 })
                 .then(function(comment){
+                    ctrl.comments.push(comment);
                     $mdToast.show(
                         $mdToast.simple()
                             .content('Comment created')

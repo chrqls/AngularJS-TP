@@ -1,4 +1,4 @@
-describe('UserController', function(){
+describe('UserFactory', function(){
 
     var usersFactory;
     var $httpBackend;
@@ -29,7 +29,7 @@ describe('UserController', function(){
     });
 
     it('should store the selectedUser', function(){
-        usersFactory.select(0);
+        usersFactory.select(users[0]);
         expect(usersFactory.getSelected().name).toBe(users[0].name);
     });
 });

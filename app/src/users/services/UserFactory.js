@@ -34,8 +34,8 @@
             get: function(){
                 return users;
             },
-            select: function(id){
-                selected = users[id];
+            select: function(user){
+                selected = user;
             },
             getSelected: function(){
                 return selected;
