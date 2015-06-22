@@ -18,13 +18,13 @@
         var self = this;
 
         this.userChange = function(){
-            self.selectedUser = self.users[self.selectedIndex];
+            self.selectedUser = self.users[self.selectedUser];
         };
 
         this.users = userFactory.get();
 
         this.login = function(){
-            userFactory.select(self.selectedIndex);
+            userFactory.select(self.selectedUser);
             $state.go('movies');
         };
     }
