@@ -29,12 +29,11 @@
         </h1>
     </div>
 </md-toolbar>
-<md-content layout="column" layout-fill>
+<md-content layout="column">
     <form name="pseudoLoginForm" layout="column" flex layout-align="center center"
           ng-controller="UserController as ctrl">
         <md-input-container>
-            <md-select name="user" placeholder="Who do you want to be ?" ng-model="ctrl.selectedIndex"
-                       ng-change="ctrl.userChange()">
+            <md-select name="user" placeholder="Who do you want to be ?">
                 <md-option ng-repeat="user in ::ctrl.users" value="{{ $index }}">{{ user.name }}</md-option>
             </md-select>
         </md-input-container>
