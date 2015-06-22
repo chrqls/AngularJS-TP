@@ -34,7 +34,7 @@
           ng-controller="UserController as ctrl">
         <md-input-container>
             <md-select name="user" placeholder="Who do you want to be ?">
-                <md-option ng-repeat="user in ::ctrl.users" value="{{ $index }}">{{ user.name }}</md-option>
+                <md-option ng-repeat="user in ::ctrl.users" ng-value="user">{{ user.name }}</md-option>
             </md-select>
         </md-input-container>
     </form>
