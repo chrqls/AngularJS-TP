@@ -38,7 +38,7 @@
                 },
                 views: {
                     movies: {
-                        controller:'MovieDetailController as ctrl',
+                        controller:'MovieDetailController as detailCtrl',
                         templateUrl: 'src/movies/views/movie-detail.tpl.html'
                     }
                 }
