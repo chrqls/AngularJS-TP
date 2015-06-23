@@ -1,12 +1,6 @@
 <article layout="column">
-    <div layout="row">
-        <h1 flex>
-            {{ ctrl.movie.title }}
-        </h1>
-        <span>{{ ctrl.movie.releaseYear }}</span>
-    </div>
-    <header layout="row" >
-        <span flex></span>
+    <header layout="row" layout-align="end">
+        <!--<span flex></span>-->
         <md-fab-speed-dial md-direction="left" class="md-scale md-accent md-raised">
             <md-fab-trigger>
                 <md-button aria-label="menu" class="md-fab">
@@ -14,7 +8,7 @@
                 </md-button>
             </md-fab-trigger>
             <md-fab-actions>
-                <md-button aria-label="comment" class="md-fab md-raised md-mini" ng-click="ctrl.comment($event)">
+                <md-button aria-label="comment" class="md-fab md-raised md-mini" ng-click="detailCtrl.comment($event)">
                     <md-icon md-font-icon="ion-chatbox"></md-icon>
                 </md-button>
                 <md-button aria-label="social" class="md-fab md-raised md-mini">
@@ -24,34 +18,36 @@
                     <md-icon md-font-icon="ion-android-star-outline"></md-icon>
                 </md-button>
             </md-fab-actions>
-
         </md-fab-speed-dial>
     </header>
-    <img ng-src="{{ ctrl.movie.poster }}" alt="{{ ctrl.movie.title }}"/>
+    <md-card>
+        <img ng-src="{{ detailCtrl.movie.poster }}" alt="{{ detailCtrl.movie.title }}"class="md-card-image"/>
+        <md-card-content>
+            <h2 class="md-title">
+                {{ detailCtrl.movie.title }}
+            </h2>
+            <p>
+                {{ detailCtrl.movie.synopsis }}
+            </p>
+            <p>
+                <span>Réalisateur : </span>
+                <span>{{ detailCtrl.movie.directors }}</span>
+            </p>
+            <p>
+                <span>Casting : </span>
+                <span ng-repeat="actor in detailCtrl.movie.actors.split(', ')">{{ actor }}</span>
+            </p>
+            <md-list class="comments-area" ng-if="detailCtrl.comments.length > 0">
+                <h2>Commentaires</h2>
+                <md-list-item class="md-3-line" ng-repeat="comment in detailCtrl.comments">
+                    <user-card user-id="{{ comment.author }}"></user-card>
+                    <div class="md-list-item-text">
+                        <h3>{{comment.title }}</h3>
+                        <p>{{ comment.content }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
+    </md-card>
 
-    <section>
-        <p>
-            {{ ctrl.movie.synopsis }}
-        </p>
-        <p>
-            <span>Réalisateur : </span>
-            <span>{{ ctrl.movie.directors }}</span>
-        </p>
-        <p>
-            <span>Casting : </span>
-            <span ng-repeat="actor in ctrl.movie.actors.split(', ')">{{ actor }}</span>
-        </p>
-
-        <md-list class="comments-area" ng-if="ctrl.comments">
-            <h2>Commentaires</h2>
-            <md-list-item class="md-3-line" ng-repeat="comment in ctrl.comments">
-                <user-card user-id="{{ comment.author }}"></user-card>
-                <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
-                <div class="md-list-item-text">
-                    <h3>{{comment.title }}</h3>
-                    <p>{{ comment.content }}</p>
-                </div>
-            </md-list-item>
-        </md-list>
-    </section>
 </article>
