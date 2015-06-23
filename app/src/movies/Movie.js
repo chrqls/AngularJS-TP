@@ -10,6 +10,11 @@
         $stateProvider
             .state('movies',{
                 url: '/movies',
+                onEnter: function(userFactory,$state){
+                    if(!userFactory.getSelected()){
+                        $state.go('users');
+                    }
+                },
                 resolve: {
                     movies: function(movieFactory){
                         return movieFactory.findAll();
