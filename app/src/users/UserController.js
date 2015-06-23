@@ -13,7 +13,6 @@
    * @description
    * manage the main state of our app
    *
-
    */
   function UserController() {
     var self = this;

@@ -33,7 +33,7 @@
     <form name="pseudoLoginForm" layout="column" flex layout-align="center center"
           ng-controller="UserController as ctrl">
         <md-input-container>
-            <md-select name="user" placeholder="Who do you want to be ?">
+            <md-select name="user" placeholder="Who do you want to be ?" ng-model="ctrl.selectedUser">
                 <md-option ng-repeat="user in ::ctrl.users" ng-value="user">{{ user.name }}</md-option>
             </md-select>
         </md-input-container>
