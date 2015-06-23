@@ -44,6 +44,15 @@
             },
             getComments: function(){
                 return comments;
+            },
+            remove: function(id){
+                return $q(function(resolve){
+                    $http
+                        .delete(URI+'/'+id)
+                        .success(function(){
+                            resolve();
+                        });
+                });
             }
         };
     }

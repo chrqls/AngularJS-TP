@@ -136,3 +136,18 @@ span.name {
     opacity:0.5;
     box-shadow: 2px 2px 5px teal;
 }
+
+[ui-view].ng-enter {
+    animation: slideInLeft 1s;
+    -webkit-animation: slideInLeft 1s;
+}
+
+.comment.ng-enter {
+    -webkit-animation: zoomInDown 1s;
+    animation: zoomInDown 1s;
+}
+
+.comment.ng-leave {
+    -webkit-animation: zoomOutDown 1s;
+    animation: zoomOutDown 1s;
+}

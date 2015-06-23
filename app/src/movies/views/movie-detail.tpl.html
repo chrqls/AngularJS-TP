@@ -1,4 +1,4 @@
-<article layout="column">
+<section layout="column">
     <header layout="row" layout-align="end">
         <!--<span flex></span>-->
         <md-fab-speed-dial md-direction="left" class="md-scale md-accent md-raised">
@@ -39,15 +39,21 @@
             </p>
             <md-list class="comments-area" ng-if="detailCtrl.comments.length > 0">
                 <h2>Commentaires</h2>
-                <md-list-item class="md-3-line" ng-repeat="comment in detailCtrl.comments">
+                <md-list-item class="md-3-line comment" ng-repeat="comment in detailCtrl.comments">
                     <user-card user-id="{{ comment.author }}"></user-card>
-                    <div class="md-list-item-text">
+                    <div>
                         <h3>{{comment.title }}</h3>
-                        <p>{{ comment.content }}</p>
+                        <article layout="row">
+                            <p>
+                                {{ comment.content }}
+                            </p>
+                            <md-button ng-if="detailCtrl.user.id === comment.author" ng-click="detailCtrl.removeComment(comment.id,$index)" class="md-fab" style="text-align: center">
+                                X
+                            </md-button>
+                        </article>
                     </div>
                 </md-list-item>
             </md-list>
         </md-card-content>
     </md-card>
-
-</article>
+</section>
