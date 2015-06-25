@@ -1,15 +1,15 @@
-describe('UserController', function () {
+describe('UsersController', function () {
 
-    var UserController;
+    var ctrl;
 
     beforeEach(module('users'));
 
     beforeEach(inject(function ($controller) {
-        UserController = $controller('UserController');
+        ctrl = $controller('UsersController');
     }));
 
     it('should have an array of user defined', function () {
-        expect(UserController.users.length).toBe(6);
+        expect(ctrl.users.length).toBe(6);
     });
 
 });
