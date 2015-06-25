@@ -10,16 +10,16 @@ Vous trouverez dans ce repository le TP utilisé durant la formation AngularJS.
 
 Dans un terminal
 
-$ sudo npm i live-server -g
-$ sudo npm i json-server -g
-$ sudo npm i gulp-server -g
+* $ sudo npm i live-server -g
+* $ sudo npm i json-server -g
+* $ sudo npm i gulp-server -g
 
 
 ### Installation
 
-Cloner le repository Git
-Ouvrir un terminal
-Se positionner dans le repertoire nouvellement créé et lancer la commande :
+* Cloner le repository Git
+* Ouvrir un terminal
+* Se positionner dans le repertoire nouvellement créé et lancer la commande :
 
 $ npm i
 
