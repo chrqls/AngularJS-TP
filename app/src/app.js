@@ -5,7 +5,7 @@
         .module('app', [
             'ngMaterial',
             'ui.router',
-            'userModel',
+            'model',
             'users'
         ])
         .config(function ($mdThemingProvider, $mdIconProvider) {

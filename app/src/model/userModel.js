@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('userModel', [])
+    angular.module('model')
 
         .service('userModel', function ($http) {
             var URI = 'http://localhost:3000/users';

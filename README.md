@@ -1,45 +1,7 @@
-# TP AngularJS
+## Etape 2
 
-Vous trouverez dans ce repository le TP utilisé durant la formation AngularJS.
-
-### Prérequis
-
-* Git
-* Node.js et npm
-* live-server, json-server et gulp
-
-Dans un terminal
-
-* $ sudo npm i live-server -g
-* $ sudo npm i json-server -g
-* $ sudo npm i gulp-server -g
-
-
-### Installation
-
-* Cloner le repository Git
-* Ouvrir un terminal
-* Se positionner dans le repertoire nouvellement créé et lancer la commande :
-
-$ npm i
-
-
-### Gulp
-
-Plusieurs tâches gulp déjà définie
-
-* code-quality : lint le code
-* unit : lance les tests unitaires une fois
-* tdd : tests unitaires en mode tdd
-* documentation : génère de la documentation
-
-
-## Etape 1
-
-1. Créer dans le repertoire users un fichier users.tpl.html.
-2. Couper coller le code du formulaire depuis le fichier index.html.
-3. Installer et intégrer ui.router dans le projet
-4. Créer un état users qui utilisera le template et le controlleur du même nom.
-5. Supprimer la liste des "users" dans le controlleur
-6. Dans un nouveau dossier src/model, créer un service userModel qui ira récuperer la liste des "users" à l'url http://localhost:3000/users.
-7. Utiliser ce service conjointement avec l'attribut resolve afin que le select continue à fonctionner correctement
+1. Créer un nouveau state "movies" en vous inspirant du state "users"
+2. Dans le dossier src/model, créer un service movieModel en vous inspirant de userModel
+3. Intégrer ce service dans le state "movies" à l'aide de la propriété resolve et utiliser ng-repeat pour afficher la liste des "movies" dans la partie droite de votre template
+4. Dans UserController ajouter une méthode login() qui redirige vers l'état "movies"
+5. Dans le template utiliser la directive mdSidenav et le service associé et mettre la liste dans la sidenav
