@@ -4,6 +4,8 @@
     angular
         .module('app', [
             'ngMaterial',
+            'ui.router',
+            'userModel',
             'users'
         ])
         .config(function ($mdThemingProvider, $mdIconProvider) {
