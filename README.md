@@ -1,9 +1,10 @@
-# exercice AngularJS AmbientIT
+# TP AngularJS
 
-Vous trouverez dans ce repository l'exercice dont nous sommes servis durant la formation angularJS.
+Vous trouverez dans ce repository le TP utilisé durant la formation AngularJS.
 
 ### Prérequis
 
+* Git
 * Node.js et npm
 * live-server, json-server et gulp
 
@@ -16,16 +17,16 @@ $ sudo npm i gulp-server -g
 
 ### Installation
 
-Cloner le repo
+Cloner le repository Git
 Ouvrir un terminal
-Se positionner dans le repertoire nouvellement créer et lancer la commandes suivantes
+Se positionner dans le repertoire nouvellement créé et lancer la commande :
 
 $ npm i
 
 
 ### Gulp
 
-Plusieurs tache gulp déjà définie
+Plusieurs tâches gulp déjà définie
 
 * code-quality : lint le code
 * unit : lance les tests unitaires une fois
@@ -35,4 +36,4 @@ Plusieurs tache gulp déjà définie
 
 ### Correction
 
-La correction des différents exercice se trouve dans les autres branches.
+La correction des différentes étapes se trouvent dans les autres branches.
