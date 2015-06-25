@@ -1,0 +1,71 @@
+<header>
+    <md-toolbar>
+        <div layout="row" class="md-toolbar-tools">
+            <md-button hide-gt-md ng-click="ctrl.toggleAside()">
+                <md-icon md-font-icon="ion-navicon"></md-icon>
+            </md-button>
+            <span flex></span>
+
+            <h1>
+                AngularJs exercice
+            </h1>
+        </div>
+    </md-toolbar>
+</header>
+<md-content layout="column" flex>
+    <section layout="row" flex>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="movies"
+                    md-is-locked-open="$mdMedia('gt-md')">
+            <md-toolbar>
+                <div class="md-toolbar-tools" layout="row">
+                    <h2>Pick a movie !!!</h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-content>
+                <md-list>
+                    <md-list-item class="md-2-line" ui-sref-active="active">
+                        <img src="assets/img/avatar.jpg" class="md-avatar"/>
+
+                        <div class="md-list-item-text">
+                            <h3>Avatar</h3>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-2-line" ui-sref-active="active">
+                        <img src="assets/img/seigneurdesanneaux1.jpg" class="md-avatar"/>
+
+                        <div class="md-list-item-text">
+                            <h3>Seigneur des Anneaux : La Communauté de l'Anneau</h3>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-2-line" ui-sref-active="active">
+                        <img src="assets/img/thegrudge.jpg" class="md-avatar"/>
+
+                        <div class="md-list-item-text">
+                            <h3>The Grudge</h3>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-2-line" ui-sref-active="active">
+                        <img src="assets/img/yipman.jpg" class="md-avatar"/>
+
+                        <div class="md-list-item-text">
+                            <h3>Yip Man 2</h3>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
+        <md-content layout="column" layout-padding>
+            <h1>Welcome !!!!</h1>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque culpa doloremque eligendi error
+                facere harum illum impedit nam officia omnis provident,
+                quibusdam sed suscipit tempora. Dolorem exercitationem provident quos. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Accusamus, ad adipisci at
+                culpa ea earum eius enim et eveniet laudantium maiores nihil non odit omnis possimus quaerat quo vel
+                veniam.
+            </p>
+        </md-content>
+    </section>
+</md-content>
