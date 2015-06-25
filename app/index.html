@@ -29,14 +29,22 @@
         </h1>
     </div>
 </md-toolbar>
-<md-content layout="column">
-    <form name="pseudoLoginForm" layout="column" flex layout-align="center center"
-          ng-controller="UserController as ctrl">
+<md-content layout="column" ng-controller="UserController as ctrl">
+    <form name="pseudoLoginForm" layout="column" flex layout-align="center center">
         <md-input-container>
             <md-select name="user" placeholder="Who do you want to be ?" ng-model="ctrl.selectedUser">
                 <md-option ng-repeat="user in ::ctrl.users" ng-value="user">{{ user.name }}</md-option>
             </md-select>
         </md-input-container>
+        <md-content ng-show="ctrl.selectedUser" layout="column" layout-align="center center">
+            <div layout="row">
+                <md-icon md-svg-icon="{{ctrl.selectedUser.avatar}}" class="avatar"></md-icon>
+                <h2>{{ctrl.selectedUser.name}}</h2>
+            </div>
+            <md-button class="md-primary md-raised" flex>
+                Login
+            </md-button>
+        </md-content>
     </form>
 </md-content>
 
@@ -45,9 +53,9 @@
 <script src="./bower_components/angular-aria/angular-aria.js"></script>
 <script src="./bower_components/angular-material/angular-material.js"></script>
 
-<script src="./src/users/User.js"></script>
-<script src="./src/users/UserController.js"></script>
 <script src="./src/app.js"></script>
+<script src="./src/users/users.js"></script>
+<script src="./src/users/UserController.js"></script>
 
 </body>
 </html>
