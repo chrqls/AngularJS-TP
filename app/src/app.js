@@ -6,6 +6,7 @@
             'ngMaterial',
             'ui.router',
             'model',
+            'movies',
             'users'
         ])
         .config(function ($mdThemingProvider, $mdIconProvider) {

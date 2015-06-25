@@ -2,10 +2,10 @@
 
     angular.module('model')
 
-        .service('userModel', userModel);
+        .service('movieModel', movieModel);
 
-    function userModel($http) {
-        var URI = 'http://localhost:3000/users';
+    function movieModel($http) {
+        var URI = 'http://localhost:3000/movies';
         this.findAll = function () {
             return $http.get(URI).then(function (response) {
                 return response.data;

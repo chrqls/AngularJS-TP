@@ -1,16 +1,32 @@
-<form name="pseudoLoginForm" layout="column" flex layout-align="center center">
-    <md-input-container>
-        <md-select name="user" placeholder="Who do you want to be ?" ng-model="ctrl.selectedUser">
-            <md-option ng-repeat="user in ::ctrl.users" ng-value="user">{{ user.name }}</md-option>
-        </md-select>
-    </md-input-container>
-    <md-content ng-show="ctrl.selectedUser" layout="column" layout-align="center center">
-        <div layout="row">
-            <md-icon md-svg-icon="{{ctrl.selectedUser.avatar}}" class="avatar"></md-icon>
-            <h2>{{ctrl.selectedUser.name}}</h2>
+<header>
+    <md-toolbar>
+        <div layout="row" class="md-toolbar-tools">
+            <small>
+                AmbientIT
+            </small>
+            <span flex></span>
+
+            <h1>
+                TP AngularJS
+            </h1>
         </div>
-        <md-button class="md-primary md-raised" flex>
-            Login
-        </md-button>
-    </md-content>
-</form>
+    </md-toolbar>
+</header>
+<md-content layout="column" flex>
+    <form name="pseudoLoginForm" layout="column" flex layout-align="center center">
+        <md-input-container>
+            <md-select name="user" placeholder="Who do you want to be ?" ng-model="ctrl.selectedUser">
+                <md-option ng-repeat="user in ::ctrl.users" ng-value="user">{{ user.name }}</md-option>
+            </md-select>
+        </md-input-container>
+        <md-content ng-show="ctrl.selectedUser" layout="column" layout-align="center center">
+            <div layout="row">
+                <md-icon md-svg-icon="{{ctrl.selectedUser.avatar}}" class="avatar"></md-icon>
+                <h2>{{ctrl.selectedUser.name}}</h2>
+            </div>
+            <md-button ng-click="ctrl.login()" class="md-primary md-raised" flex>
+                Login
+            </md-button>
+        </md-content>
+    </form>
+</md-content>

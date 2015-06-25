@@ -15,22 +15,7 @@
     <link rel="stylesheet" href="assets/app.css"/>
 </head>
 
-<body ng-app="app">
-
-<md-toolbar>
-    <div layout="row" class="md-toolbar-tools">
-        <small>
-            AmbientIT
-        </small>
-        <span flex></span>
-
-        <h1>
-            TP AngularJS
-        </h1>
-    </div>
-</md-toolbar>
-<md-content layout="column" ui-view>
-</md-content>
+<body ng-app="app" ui-view layout="column">
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -39,11 +24,15 @@
 <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
 
 <script src="src/model/model.js"></script>
+<script src="src/model/movieModel.js"></script>
 <script src="src/model/userModel.js"></script>
+
+<script src="src/movies/movies.js"></script>
+<script src="src/movies/MoviesController.js"></script>
 
 <script src="src/app.js"></script>
 <script src="src/users/users.js"></script>
-<script src="src/users/UserController.js"></script>
+<script src="src/users/UsersController.js"></script>
 
 </body>
 </html>
