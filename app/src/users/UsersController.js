@@ -3,7 +3,7 @@
 
     angular
         .module('users')
-        .controller('UserController', UserController);
+        .controller('UsersController', UsersController);
 
     /**
      * @ngdoc controller
@@ -14,7 +14,7 @@
      * manage the main state of our app
      *
      */
-    function UserController(userList) {
+    function UsersController(userList) {
         var ctrl = this;
 
         ctrl.users = userList;
