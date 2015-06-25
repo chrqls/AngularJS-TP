@@ -3,18 +3,9 @@
 
     angular
         .module('users')
-        .controller('UserController', UserController);
+        .controller('UsersController', UsersController);
 
-    /**
-     * @ngdoc controller
-     * @name users.controller:UserController
-     * @function
-     *
-     * @description
-     * manage the main state of our app
-     *
-     */
-    function UserController() {
+    function UsersController() {
         var ctrl = this;
 
         ctrl.users = [
