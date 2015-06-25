@@ -34,6 +34,12 @@ Plusieurs tâches gulp déjà définie
 * documentation : génère de la documentation
 
 
-### Correction
+## Etape 1
 
-La correction des différentes étapes se trouvent dans les autres branches.
+1. Créer dans le repertoire users un fichier users.tpl.html.
+2. Couper coller le code du formulaire depuis le fichier index.html.
+3. Installer et intégrer ui.router dans le projet
+4. Créer un état users qui utilisera le template et le controlleur du même nom.
+5. Supprimer la liste des "users" dans le controlleur
+6. Créer un service qui ira récuperer la liste des "users" à l'url http://localhost:3000/users.
+7. Utiliser ce service conjointement avec l'attribut resolve afin que le select continue à fonctionner correctement

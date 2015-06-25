@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -6,7 +6,7 @@
             'ngMaterial',
             'users'
         ])
-        .config(function($mdThemingProvider, $mdIconProvider){
+        .config(function ($mdThemingProvider, $mdIconProvider) {
 
             $mdIconProvider
                 .defaultIconSet("./assets/svg/avatars.svg", 128);
