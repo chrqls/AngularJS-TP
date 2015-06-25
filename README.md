@@ -41,5 +41,5 @@ Plusieurs tâches gulp déjà définie
 3. Installer et intégrer ui.router dans le projet
 4. Créer un état users qui utilisera le template et le controlleur du même nom.
 5. Supprimer la liste des "users" dans le controlleur
-6. Créer un service qui ira récuperer la liste des "users" à l'url http://localhost:3000/users.
+6. Dans un nouveau dossier src/model, créer un service userModel qui ira récuperer la liste des "users" à l'url http://localhost:3000/users.
 7. Utiliser ce service conjointement avec l'attribut resolve afin que le select continue à fonctionner correctement
