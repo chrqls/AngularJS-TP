@@ -8,8 +8,12 @@
                 $mdDialog.show({
                     templateUrl: 'src/movies/detail/comments/addCommentDialog.tpl.html',
                     controller: function AddCommentDialogController() {
-                        this.movie = movie;
-                        this.close = $mdDialog.cancel;
+                        var ctrl = this;
+                        ctrl.movie = movie;
+                        ctrl.close = $mdDialog.cancel;
+                        ctrl.addComment = function (comment) {
+
+                        };
                     },
                     controllerAs: 'ctrl',
                     targetEvent: event
