@@ -8,9 +8,12 @@
         </md-toolbar>
         <md-content>
             <md-list>
-                <md-list-item class="md-2-line" ng-repeat="movie in ::ctrl.movies" ui-sref-active="active">
-                    <img ng-src="{{ movie.poster }}" class="md-avatar" alt="{{movie.name}}" />
-                    <div class="md-list-item-text" ui-sref="movies.detail({ id : movie.id})">
+                <md-list-item ng-repeat="movie in ::ctrl.movies" class="md-2-line"
+                              ng-click="ctrl.showDetails(movie)"
+                              ng-class="{active: ctrl.isSelected(movie)}">
+                    <img ng-src="{{ movie.poster }}" class="md-avatar" alt="{{movie.name}}"/>
+
+                    <div class="md-list-item-text">
                         <h3>{{ movie.title }}</h3>
                     </div>
                 </md-list-item>
@@ -19,9 +22,12 @@
     </md-sidenav>
     <section ui-view="movies">
         <h1>Welcome !!!!</h1>
+
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque culpa doloremque eligendi error facere harum illum impedit nam officia omnis provident,
-            quibusdam sed suscipit tempora. Dolorem exercitationem provident quos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, ad adipisci at
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque culpa doloremque eligendi error facere
+            harum illum impedit nam officia omnis provident,
+            quibusdam sed suscipit tempora. Dolorem exercitationem provident quos. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Accusamus, ad adipisci at
             culpa ea earum eius enim et eveniet laudantium maiores nihil non odit omnis possimus quaerat quo vel veniam.
         </p>
     </section>
