@@ -4,12 +4,12 @@
             <h5>New Comment for {{ ctrl.movie.title }}</h5>
             <span flex></span>
             <md-button class="md-icon-button" ng-click="ctrl.close()">
-                <md-icon md-font-icon="ion-android-close" aria-label="Close dialog" class="md-primary"></md-icon>
+                <md-icon md-font-icon="ion-android-close" aria-label="Close dialog"></md-icon>
             </md-button>
         </div>
     </md-toolbar>
-    <form name="commentForm" ng-submit="ctrl.addComment(ctrl.comment)">
-        <md-dialog-content>
+    <md-dialog-content>
+        <form name="commentForm" ng-submit="ctrl.addComment(ctrl.comment)">
             <md-input-container>
                 <label>Title of your comment...</label>
                 <input type="text" md-maxlength="20" pattern="[a-zA-Z0-9]+" name="title" autofocus="true"
@@ -50,7 +50,6 @@
                     Submit
                 </md-button>
             </div>
-        </md-dialog-content>
-
-    </form>
+        </form>
+    </md-dialog-content>
 </md-dialog>
