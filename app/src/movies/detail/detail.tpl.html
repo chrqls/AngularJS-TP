@@ -5,8 +5,9 @@
         </md-button>
     </header>
     <md-card>
+        <img ng-src="{{ ctrl.movie.poster }}" alt="{{ ctrl.movie.title }}" class="md-card-image"/>
+
         <md-card-content>
-            <img ng-src="{{ ctrl.movie.poster }}" alt="{{ ctrl.movie.title }}" class="md-card-image"/>
 
             <h2 class="md-title">
                 {{ ctrl.movie.title }}
