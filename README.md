@@ -1,4 +1,4 @@
 ## Etape 4
 
-1. Ajouter une méthode addComment() à MovieDetailController
-2. Utiliser le service $mdDialog en s'inspirant de la documentation d'Angular Material : https://material.angularjs.org/latest/#/demo/material.components.dialog
+1. Dans le state "movies.detail", ouvrir une boîte de dialogue lorsque le bouton (en haut à droite) est cliqué. Utiliser pour cela le service $mdDialog (doc: https://material.angularjs.org/latest/#/demo/material.components.dialog)
+2. Afficher dans cette boîte de dialogue le titre du film sélectionné (le controller du dialog doit avoir accès à l'objet movie)
