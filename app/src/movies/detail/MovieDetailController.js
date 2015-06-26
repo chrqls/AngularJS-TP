@@ -4,8 +4,8 @@
 
         .controller('MovieDetailController', MovieDetailController);
 
-    function MovieDetailController() {
-
+    function MovieDetailController(movie) {
+        this.movie = movie;
     }
 
 })();
