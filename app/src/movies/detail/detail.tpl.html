@@ -1,23 +1,45 @@
-<md-card>
-    <md-card-content>
-        <img ng-src="{{ ctrl.movie.poster }}" alt="{{ ctrl.movie.title }}" class="md-card-image"/>
+<article layout="column">
+    <header layout="row" layout-align="end">
+        <md-fab-speed-dial md-direction="left" class="md-fling md-accent md-raised">
+            <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab">
+                    <md-icon md-font-icon="ion-chevron-left"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <md-button aria-label="comment" class="md-fab md-raised md-mini">
+                    <md-icon md-font-icon="ion-chatbox"></md-icon>
+                </md-button>
+                <md-button aria-label="social" class="md-fab md-raised md-mini">
+                    <md-icon md-font-icon="ion-android-share"></md-icon>
+                </md-button>
+                <md-button aria-label="rate" class="md-fab md-raised md-mini">
+                    <md-icon md-font-icon="ion-android-star-outline"></md-icon>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </header>
+    <md-card>
+        <md-card-content>
+            <img ng-src="{{ ctrl.movie.poster }}" alt="{{ ctrl.movie.title }}" class="md-card-image"/>
 
-        <h2 class="md-title">
-            {{ ctrl.movie.title }}
-        </h2>
+            <h2 class="md-title">
+                {{ ctrl.movie.title }}
+            </h2>
 
-        <p>
-            {{ ctrl.movie.synopsis }}
-        </p>
+            <p>
+                {{ ctrl.movie.synopsis }}
+            </p>
 
-        <p>
-            <span>Réalisateur : </span>
-            <span>{{ ctrl.movie.directors }}</span>
-        </p>
+            <p>
+                <span>Réalisateur : </span>
+                <span>{{ ctrl.movie.directors }}</span>
+            </p>
 
-        <p>
-            <span>Casting : </span>
-            <span>{{ ctrl.movie.actors}}</span>
-        </p>
-    </md-card-content>
-</md-card>
+            <p>
+                <span>Casting : </span>
+                <span>{{ ctrl.movie.actors}}</span>
+            </p>
+        </md-card-content>
+    </md-card>
+</article>
