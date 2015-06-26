@@ -4,8 +4,12 @@
 
         .controller('MovieDetailController', MovieDetailController);
 
-    function MovieDetailController(movie) {
-        this.movie = movie;
+    function MovieDetailController(movie, addCommentDialog) {
+        var ctrl = this;
+
+        ctrl.movie = movie;
+
+        ctrl.addCommentDialog = addCommentDialog;
     }
 
 })();

@@ -1,6 +1,6 @@
 <article layout="column">
     <header layout="row" layout-align="end">
-        <md-button aria-label="comment" class="md-fab">
+        <md-button ng-click="ctrl.addCommentDialog.open(ctrl.movie, $event)" aria-label="comment" class="md-fab">
             <md-icon md-font-icon="ion-chatbox"></md-icon>
         </md-button>
     </header>

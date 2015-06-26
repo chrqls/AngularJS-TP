@@ -1,0 +1,19 @@
+<md-dialog aria-label="new comment for {{ ctrl.movie.title }}">
+    <form>
+        <md-toolbar class="md-accent">
+            <div class="md-toolbar-tools" layout="row">
+                <h5>Add comment for movie {{ ctrl.movie.title }}</h5>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ctrl.close()">
+                    <md-icon md-font-icon="ion-android-close" aria-label="Close dialog" class="md-primary"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            Dialog Content...
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+
+        </div>
+    </form>
+</md-dialog>
