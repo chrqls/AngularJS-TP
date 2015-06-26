@@ -28,16 +28,14 @@
                                   ui-sref-active="active">
                         <img ng-src="{{ movie.poster }}" class="md-avatar" alt="{{movie.name}}"/>
 
-                        <div ui-sref="movies.detail({id: movie.id})">
-                            <div class="md-list-item-text">
-                                <h3>{{ movie.title }}</h3>
-                            </div>
+                        <div class="md-list-item-text">
+                            <h3>{{ movie.title }}</h3>
                         </div>
                     </md-list-item>
                 </md-list>
             </md-content>
         </md-sidenav>
-        <md-content ui-view layout="column" layout-padding>
+        <md-content ui-view layout="column" layout-padding flex>
             <h1>Welcome !!!!</h1>
 
             <p>
