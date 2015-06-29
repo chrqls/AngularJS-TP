@@ -10,7 +10,14 @@
             'movies',
             'users'
         ])
-        .config(function ($mdThemingProvider, $mdIconProvider) {
+        .config(function ($stateProvider, $mdThemingProvider, $mdIconProvider) {
+
+            $stateProvider.state('default', {
+                url: '',
+                onEnter: function ($state) {
+                    $state.go('users');
+                }
+            });
 
             $mdIconProvider
                 .defaultIconSet("./assets/svg/avatars.svg", 128);
