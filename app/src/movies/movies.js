@@ -13,7 +13,12 @@
                     movieList: function (movieModel) {
                         return movieModel.findAll();
                     }
-                }
+                },
+                onEnter: function (userModel, $state) {
+                    if (!userModel.loggedUser) {
+                        $state.go('users');
+                    }
+                },
             });
         });
 

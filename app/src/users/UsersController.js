@@ -14,12 +14,14 @@
      * manage the main state of our app
      *
      */
-    function UsersController(userList, $state) {
+    function UsersController(userList, $state, userModel) {
         var ctrl = this;
 
         ctrl.users = userList;
+        ctrl.selectedUser = ctrl.users[0];
 
         ctrl.login = function () {
+            userModel.login(ctrl.selectedUser);
             $state.go('movies');
         }
     }

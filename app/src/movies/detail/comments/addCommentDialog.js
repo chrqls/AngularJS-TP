@@ -2,7 +2,7 @@
 
     angular.module('movies')
 
-        .service('addCommentDialog', function ($mdDialog) {
+        .service('addCommentDialog', function ($mdDialog, userModel) {
 
             this.open = function (movie, event) {
                 $mdDialog.show({
@@ -12,6 +12,8 @@
                         ctrl.movie = movie;
                         ctrl.close = $mdDialog.cancel;
                         ctrl.addComment = function (comment) {
+                            comment.movie = movie.id;
+                            comment.author = userModel.loggedUser.id;
                             commentModel.create(comment).then(ctrl.close);
                         };
                     },
