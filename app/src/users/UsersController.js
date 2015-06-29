@@ -18,7 +18,7 @@
         var ctrl = this;
 
         ctrl.users = userList;
-        ctrl.selectedUser = ctrl.users[0];
+        ctrl.selectedUser = null;
 
         ctrl.login = function () {
             userModel.login(ctrl.selectedUser);
