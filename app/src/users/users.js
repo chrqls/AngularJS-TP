@@ -8,7 +8,7 @@
 
         .config(function ($stateProvider) {
             $stateProvider.state('users', {
-                url: '',
+                url: '/',
                 templateUrl: 'src/users/users.tpl.html',
                 controller: 'UsersController as ctrl',
                 resolve: {
