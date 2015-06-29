@@ -11,10 +11,16 @@
 
         userModel.loggedUser = null;
 
+        function extractData(response) {
+            return response.data;
+        }
+
         userModel.findAll = function () {
-            return $http.get(URI).then(function (response) {
-                return response.data;
-            });
+            return $http.get(URI).then(extractData);
+        };
+
+        userModel.findById = function (id) {
+            return $http.get(URI + '/' + id).then(extractData);
         };
 
         userModel.login = function (user) {
