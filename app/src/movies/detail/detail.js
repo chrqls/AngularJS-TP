@@ -9,7 +9,9 @@
                 controller: 'MovieDetailController as ctrl',
                 resolve: {
                     movie: function ($stateParams, movieModel) {
-                        return movieModel.findOne($stateParams.id);
+                        return movieModel.findOne($stateParams.id).then(function (movie) {
+                            return movie.populateComments();
+                        });
                     }
                 }
             });

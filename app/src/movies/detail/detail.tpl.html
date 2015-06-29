@@ -25,6 +25,18 @@
                 <span>Casting : </span>
                 <span>{{ ctrl.movie.actors}}</span>
             </p>
+            <md-list class="comments-area" ng-if="ctrl.movie.comments.length > 0">
+                <h2>Commentaires</h2>
+                <md-list-item class="md-3-line" ng-repeat="comment in ctrl.movie.comments">
+                    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}"/>
+
+                    <div class="md-list-item-text">
+                        <h3>{{comment.title }}</h3>
+
+                        <p>{{ comment.content }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
         </md-card-content>
     </md-card>
 </article>
