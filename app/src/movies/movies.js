@@ -18,7 +18,7 @@
                     if (!userModel.loggedUser) {
                         $state.go('users');
                     }
-                },
+                }
             });
         });
 
