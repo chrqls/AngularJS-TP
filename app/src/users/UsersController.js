@@ -23,7 +23,7 @@
         ctrl.login = function () {
             userModel.login(ctrl.selectedUser);
             $state.go('movies');
-        }
+        };
     }
 
 })();
