@@ -12,9 +12,7 @@
                         ctrl.movie = movie;
                         ctrl.close = $mdDialog.cancel;
                         ctrl.addComment = function (comment) {
-                            comment.movie = movie.id;
-                            comment.author = userModel.loggedUser.id;
-                            commentModel.create(comment).then(ctrl.close);
+                            movie.addComment(comment, userModel.loggedUser).then(ctrl.close);
                         };
                     },
                     controllerAs: 'ctrl',

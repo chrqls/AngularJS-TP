@@ -4,8 +4,10 @@
 
         .service('movieModel', movieModel);
 
-    function movieModel($http, commentModel) {
+    function movieModel($http, $q, commentModel) {
         var URI = 'http://localhost:3000/movies';
+
+        var cache = {};
 
         this.findAll = function () {
             return $http.get(URI).then(function (response) {
@@ -14,13 +16,23 @@
         };
 
         this.findOne = function (movieId) {
-            return $http.get(URI + '/' + movieId).then(function (response) {
-                return asMovie(response.data);
-            });
+            if (cache[movieId])
+                return $q.when(cache[movieId]);
+            else
+                return $http.get(URI + '/' + movieId).then(extractMovie).then(cacheMovie);
         };
+
+        function extractMovie(response) {
+            return asMovie(response.data);
+        }
 
         function asMovie(data) {
             return angular.extend(data, Movie);
+        }
+
+        function cacheMovie(movie) {
+            cache[movie.id] = movie;
+            return movie;
         }
 
         var Movie = {
@@ -29,6 +41,14 @@
                 return commentModel.findByMovie(movie.id).then(function (comments) {
                     movie.comments = comments;
                     return movie;
+                });
+            },
+            addComment: function (comment, author) {
+                var movie = this;
+                comment.movie = movie.id;
+                comment.author = author.id;
+                return commentModel.create(comment).then(function (savedComment) {
+                    movie.comments.push(savedComment);
                 });
             }
         };
