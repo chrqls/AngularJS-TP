@@ -7,8 +7,6 @@
     function movieModel($http, $q, commentModel) {
         var URI = 'http://localhost:3000/movies';
 
-        var cache = {};
-
         this.findAll = function () {
             return $http.get(URI).then(function (response) {
                 return _.map(response.data, asMovie);
@@ -16,10 +14,7 @@
         };
 
         this.findOne = function (movieId) {
-            if (cache[movieId])
-                return $q.when(cache[movieId]);
-            else
-                return $http.get(URI + '/' + movieId).then(extractMovie).then(cacheMovie);
+            return $http.get(URI + '/' + movieId).then(extractMovie);
         };
 
         function extractMovie(response) {
@@ -28,11 +23,6 @@
 
         function asMovie(data) {
             return angular.extend(data, Movie);
-        }
-
-        function cacheMovie(movie) {
-            cache[movie.id] = movie;
-            return movie;
         }
 
         var Movie = {
