@@ -1,0 +1,11 @@
+<div layout="row" ng-if="ctrl.comment.authorInfo">
+    <md-icon md-svg-icon="{{ ctrl.comment.authorInfo.avatar }}" class="avatar"></md-icon>
+
+    <div class="md-list-item-text">
+        <h3>{{ ctrl.comment.title }}</h3>
+
+        <p>{{ ctrl.comment.content }}</p>
+
+        <p>By {{ ctrl.comment.authorInfo.name }}</p>
+    </div>
+</div>

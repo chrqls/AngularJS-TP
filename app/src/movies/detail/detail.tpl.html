@@ -28,17 +28,7 @@
             <md-list class="comments-area" ng-if="ctrl.movie.comments.length > 0">
                 <h2>Commentaires</h2>
                 <md-list-item class="md-3-line" ng-repeat="comment in ctrl.movie.comments">
-                    <div layout="row">
-                        <md-icon md-svg-icon="{{comment.authorInfo.avatar}}" class="avatar"></md-icon>
-
-                        <div class="md-list-item-text">
-                            <h3>{{comment.title }}</h3>
-
-                            <p>{{ comment.content }}</p>
-
-                            <p>By {{comment.authorInfo.name}}</p>
-                        </div>
-                    </div>
+                    <comment data="comment"></comment>
                 </md-list-item>
             </md-list>
         </md-card-content>

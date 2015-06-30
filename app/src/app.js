@@ -6,6 +6,7 @@
             'ngMaterial',
             'ngMessages',
             'ui.router',
+            'components',
             'model',
             'movies',
             'users'
